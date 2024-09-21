@@ -1,0 +1,81 @@
+.suggestion-box {
+  position: fixed;
+  right: 10px;
+  top: 30%;
+  width: 280px; /* A bit wider for a prompt-like appearance */
+  background: #ffffff; /* Clean white background */
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for prominence */
+  border-radius: 12px; /* Rounded corners for a modern look */
+  z-index: 1000;
+  border: 2px solid #003120; /* Border color for emphasis */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition effects */
+  transform: translateY(-20px); /* Initial position off-screen */
+  opacity: 0; /* Initial opacity for fade-in effect */
+}
+
+
+.suggestion-close {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background: #003120; /* Blue background for the close button */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #ffffff; /* White color for the icon */
+  cursor: pointer;
+  transition: background 0.3s ease; /* Smooth background color transition */
+}
+
+.suggestion-close:hover {
+  background: #fff; /* Darker blue on hover */
+}
+
+.suggestion-box h3 {
+  margin: 0;
+  padding-bottom: 15px;
+  font-size: 18px; /* Larger heading */
+  color: #333; /* Dark text color */
+  font-weight: bold; /* Bold font for prominence */
+  font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.suggestion-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestion-box li {
+  display: flex;
+  margin: 10px 0; /* Spacing between items */
+  font-size: 16px; /* Readable font size */
+  color: #555; /* Slightly lighter text color */
+  position: relative;
+  padding-left: 20px; /* Space for the icon */
+}
+
+.suggestion-box li::before {
+  content: '✔'; /* Checkmark as a bullet point */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px; /* Size of the checkmark */
+  color: #555; /* Color to match the border */
+}
+@media (max-width: 1030px){
+  .suggestion-box {
+    position: absolute;
+    right: 10px;
+    top: 20%;
+    
+    
+  }
+}

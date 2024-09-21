@@ -1,0 +1,89 @@
+/* Container for the entire page */
+.template-page {
+    padding: 100px 20px 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.template-page h2{
+    justify-content: center;
+    color: #000;
+    font-family:'Courier New', Courier, monospace;
+}
+.template-page h3{
+    justify-content: center;
+    color: #000;
+}
+
+/* General section styling */
+.template-section {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    position: relative;
+}
+
+/* Line below the section title */
+.line{content: "";
+    display: block;
+    width: 90%; /* Adjust width as needed */
+    height: 3px; /* Line thickness */
+    background-color: #003400; /* Line color */
+    margin: 10px auto 30px; /* Spacing adjustments */
+    border-radius: 2px;}
+
+
+/* Template list to wrap cards and maintain responsive layout */
+.template-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; /* Center the cards */
+}
+
+/* Individual template card styling */
+.template-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: calc(33.333% - 40px); /* Responsive width */
+    max-width: 150px; /* Maximum width for larger screens */
+    min-width: 220px; /* Minimum width for smaller screens */
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Hover effect for template card */
+.template-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #000;
+}
+
+/* Template thumbnail image styling */
+.template-thumbnail {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: 1px solid;
+
+}
+
+/* Template title styling */
+
+/* Media query for tablet devices */
+@media (max-width: 768px) {
+    .template-card {
+        width: calc(50% - 40px); /* Adjust card width for tablet */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .template-card {
+        width: calc(100% - 40px); /* Full width for mobile */
+        margin: 0 auto;
+    }
+}

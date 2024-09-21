@@ -1,0 +1,219 @@
+.tips-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .tips-icon {
+    font-size: 24px; /* Size of the icon */
+    color: #ffa500; /* Orange color for the icon */
+    cursor: pointer;
+   /* Space between the icon and the form title */
+    transition: transform 0.3s;
+    margin-top: -60px;
+    margin-left: 500px;
+  
+  }
+  
+  .tips-icon:hover {
+    transform: scale(1.2); /* Slightly enlarge the icon on hover */
+  }
+  
+  .tips-popup {
+    position: absolute;
+    top: -3px; /* Positioning the popup below the icon */
+    left: 0;
+    width: 600px; /* Width of the tips popup */
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ccc; /* Border around the popup */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    padding: 10px;
+    border-radius: 20px; /* Rounded corners */
+    z-index: 10; /* Ensure it appears above other elements */
+  }
+  
+  .tips-popup h3,h4 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .tips-popup ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .tips-popup li {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+  }
+ 
+  
+  .tips-popup p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  @media (max-width: 1030px){
+    .tips-icon {
+        margin-left: 900px;
+      }
+      .tips-popup {
+        top: 15px; /* Positioning the popup below the icon */
+        width: 980px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 1015px){
+      .tips-popup {
+        width: 960px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 1000px){
+    .tips-icon {
+        margin-left: 900px;
+      }
+      .tips-popup {
+        width: 950px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 988px){
+    .tips-icon {
+        margin-left: 860px;
+      }
+      .tips-popup {
+        width: 930px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 988px){
+    .tips-icon {
+        margin-left: 840px;
+      }
+      .tips-popup {
+        width: 910px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 950px){
+    .tips-icon {
+        margin-left: 840px;
+      }
+      .tips-popup {
+        width: 880px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 920px){
+    .tips-icon {
+        margin-left: 820px;
+      }
+      .tips-popup {
+        width: 860px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 900px){
+    .tips-icon {
+        margin-left: 800px;
+      }
+      .tips-popup {
+        width: 840px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 880px){
+    .tips-icon {
+        margin-left: 750px;
+      }
+      .tips-popup {
+        width: 820px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 850px){
+    .tips-icon {
+        margin-left: 680px;
+      }
+      .tips-popup {
+        width: 600px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 760px){
+    .tips-icon {
+        margin-left: 600px;
+      }
+  }
+  @media (max-width: 666px){
+    .tips-icon {
+        margin-left: 500px;
+      }
+      .tips-popup {
+        width: 500px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 570px){
+    .tips-icon {
+        margin-left: 400px;
+      }
+      .tips-popup {
+        width: 450px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 490px){
+   
+      .tips-popup {
+        width: 400px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 475px){
+    .tips-icon {
+        margin-left: 350px;
+      }
+      .tips-popup {
+        width: 400px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 445px){
+      .tips-popup {
+        width: 350px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 445px){
+    .tips-icon {
+        margin-left: 300px;
+      }
+      .tips-popup {
+        width: 350px; /* Width of the tips popup */
+        top:10%;
+      }
+  }
+  @media (max-width: 400px){
+    .tips-icon {
+        margin-left: 300px;
+        margin-top: -40px;
+      }
+      .tips-popup {
+        width: 350px; /* Width of the tips popup */
+        top:0;
+      }
+  }
+  @media (max-width: 380px){
+    .tips-icon {
+        margin-top: -40px;
+      }
+      .tips-popup {
+        width: 300px; /* Width of the tips popup */
+      }
+  }
+  @media (max-width: 380px){
+    .tips-icon {
+        margin-left: 250px;
+      }
+      .tips-popup {
+        width: 300px; /* Width of the tips popup */
+      }
+  }

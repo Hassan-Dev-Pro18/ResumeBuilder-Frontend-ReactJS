@@ -1,0 +1,135 @@
+.terms-containers {
+    padding-top: 70px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  
+  .terms-title {
+    color: #003140;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+  .terms-p{
+    color: #003140;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;    
+  }
+  
+  
+  
+  .terms-section {
+    margin-top: 30px;
+  }
+  
+  .terms-section h2 {
+    font-size: 1.8rem;
+    color: #003140;
+    margin-bottom: 10px;
+  }
+  
+  .terms-section p,
+  .terms-section ul {
+    font-size: 1rem;
+    color: #003140;
+    margin-left: 20px;
+  }
+  
+  .terms-ul {
+    margin-top: 10px;
+    list-style-type: square;
+  }
+  
+  .terms-ul .terms-li {
+    margin-bottom: 8px;
+    margin-left: 60px;
+  }
+  
+  .terms-a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .terms-a:hover {
+    text-decoration: underline;
+  }
+  
+  .terms-footer {
+    margin-top: 50px;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+
+  /* Media Queries */
+@media (max-width: 1029px) {
+  .terms-containers {
+    padding: 70px;
+    
+  }
+  .terms-title {
+    font-size: 1.6rem;
+  }
+  
+  .terms-p {
+    font-size: 0.9rem;
+  }
+  
+  .terms-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .terms-section p,
+  .terms-section ul {
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  
+  .terms-ul .terms-li {
+    margin-left: 40px;
+  }
+  
+  .terms-footer {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 250px) {
+  .terms-containers {
+    padding-top: 30px;
+    max-width: 90%;
+  }
+  
+  .terms-title {
+    font-size: 1.5rem;
+  }
+  
+  .terms-p {
+    font-size: 0.8rem;
+  }
+  
+  .terms-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .terms-section p,
+  .terms-section ul {
+    font-size: 0.8rem;
+    margin-left: 5px;
+  }
+  
+  .terms-ul .terms-li {
+    margin-left: 20px;
+  }
+  
+  .terms-footer {
+    font-size: 0.9rem;
+  }
+}

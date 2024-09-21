@@ -1,0 +1,343 @@
+.NavbarItems {
+    background-color: #fafaf2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 70px;
+    border-radius: 0px; /* corrected from 0xpx */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 9999;
+}
+
+.navbar-logo {
+    
+    font-size: 2rem; /* Adjust size as needed */
+  font-weight: bold;
+  color: #003135; /* Text color */
+  text-transform: uppercase; /* Optional: capitalize text */
+  letter-spacing: 2px; /* Optional: space between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: shadow effect */
+  cursor: pointer; /* Optional: add cursor pointer effect */
+  transition: color 0.3s ease;
+}
+.navbar-logo:hover{
+   
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: #003135;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.7rem 1rem;
+    white-space: nowrap;
+}
+
+.nav-links i {
+    padding-right: 10px;
+}
+
+.nav-links:hover {
+    /* background: linear-gradient(45deg, #003135, #005f5f); */
+    color: #005f5f;
+    /* border-radius: 100px; */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links-mobile {
+    display: none;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    border-radius: 0.8rem;
+    background-color: #003135;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #003135;
+}
+
+.menu-icon {
+    display: none;
+}
+
+.username-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #003135;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.prompt-box1 {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 300px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.prompt-box1 .email {
+    font-size: 0.9rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.profile-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #003135;
+    color: #fff;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.close-prompt {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+}
+
+.edit-button {
+    position: absolute;
+    bottom: -9px;
+    right: -6px;
+    background: #fff;
+    color: #003135;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 10px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.greeting {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.sign-out {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.sign-out {
+    background: #003135;
+    color: #fff;
+}
+
+.privacy-links {
+    font-size: 0.8rem;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.privacy-links a {
+    color: #555;
+    text-decoration: none;
+}
+
+.privacy-links a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust the mobile view styles */
+@media screen and (max-width: 950px) {
+    .NavbarItems{
+        z-index: 99;
+    }
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 100px;
+        background: #fff;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: -900%;
+        opacity: 1;
+        align-items: stretch;
+        padding: 80px 0 30px 0;
+        margin: 0;
+        transition: 0.3s ease-in-out;
+        border-radius: 13px;
+    }
+
+    .nav-menu.actives {
+        left: 0;
+        opacity: 1;
+        z-index: -1;
+        transition: 0.3s ease-in-out;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: block;
+        width: 100%;
+        font-size: 1.2rem;
+        padding: 1.1rem 0;
+    }
+
+    .nav-links:hover {
+        color: #003135;
+        transition: none;
+    }
+
+    .nav-links-mobile {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        margin: auto;
+        border-radius: 8px;
+        width: 80%;
+        background-color: #003135;
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .nav-links-mobile:hover {
+        background-color: #b36262;
+        color: #003135;
+        border: 2px solid #003135;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-icon i {
+        font-size: 1.2rem;
+        color: #222;
+    }
+
+    .username-circle {
+        display: inline-block;
+        margin: 10px auto;
+    }
+
+    .logged-in .nav-links-mobile {
+        display: none;
+    }
+    .prompt-box {
+        top: 55px;
+        right: 80px;
+        width: 300px;
+        background: #e6e6e6; 
+    }
+    
+}
+
+/* Further adjustments for tablets and smaller devices */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        padding: 60px 0 20px 0;
+    }
+
+    .username-circle {
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .NavBarItems {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 15px;
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu {
+        padding: 50px 0 10px 0;
+    }
+
+    .nav-links {
+        font-size: 1rem;
+        padding: 1rem 0;
+    }
+
+    .username-circle {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 1em;
+    }
+}

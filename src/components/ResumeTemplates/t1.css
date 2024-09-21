@@ -1,0 +1,227 @@
+/* Global Styles */
+.body1 {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 400px; /*Change*/
+    color: #333;
+    background-color: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+}
+
+.t1_container {
+    max-width: 850px;
+    position: relative;
+    border: 1px solid transparent; /* Default border */
+    transition: border-color 0.3s ease;
+    margin: auto;
+    /* border: 1px solid black; */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+}
+.t1_container:hover {
+    border-color: blue; /* Border color on hover */
+  }
+p,li{
+    text-align: justify;
+}
+h1, h2, h3, p {
+    display: flex;
+    margin: 0;
+    justify-content: flex-start;
+}
+strong{
+    font-size: 17px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #004080;
+    padding-bottom: 20px;
+}
+
+.name-title h1 {
+    font-size: 36px;
+    color: #004080;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    padding-top: 10px;
+    padding-left: 40px;
+}
+
+.name-title h2 {
+    font-size: 20px;
+    color: #b3b3b3;
+}
+
+.contact-info {
+    text-align: right;
+    padding-top: 1px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-right: 25px;
+}
+.contact-info p{
+    gap:2px;
+}
+.contact-info .icon{
+    padding-top: 3px;
+}
+
+.content {
+    display: flex;
+    margin-top: 20px;
+}
+
+.sidebar {
+    width: 30%;
+    padding-right: 20px;
+    border-right: 2px solid #004080;
+}
+
+.sidebar .profile, .sidebar .skills,.sidebar .hobbies {
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+.projects ul,.skills ul,.hobbies ul{
+    list-style-type:disc;
+    margin-left: 20px;
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    color: #004080;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.sidebar p, .sidebar ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.main-content {
+    width: 70%;
+    padding-left: 20px;
+}
+
+.main-content .objective, .main-content .experience, .main-content .education, .main-content .projects {
+    margin-bottom: 20px;
+}
+
+.main-content h3 {
+    font-size: 18px;
+    color: #004080;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.main-content p, .main-content ul, .main-content li {
+    font-size: 14px;
+    line-height: 1.6;
+    justify-items: baseline;
+}
+
+.job {
+    margin-bottom: 10px;
+}
+
+.job p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.job ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+.edit-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: transparent; /* Hide icon by default */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .t1_container:hover .edit-icon {
+    color: blue; /* Icon color on hover */
+  }
+  .button-containers {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    bottom: -800px; /* Positioned below the resume */
+    padding-bottom: 20px;
+  }
+  
+  .download-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  .download-btn:hover {
+    background-color: #0056b3;
+  }
+ /* Mobile Styles at 350px */
+@media (max-width: 350px) {
+    .t1_container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .name-title h1 {
+        font-size: 5px;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+
+    .name-title h2 {
+        font-size: 14px;
+        padding-left: 10px;
+    }
+
+    .contact-info {
+        font-size: 10px;
+        margin-right: 10px;
+    }
+
+    .sidebar h3 {
+        font-size: 14px;
+    }
+
+    .sidebar p, .sidebar ul {
+        font-size: 12px;
+    }
+
+    .main-content h3 {
+        font-size: 14px;
+    }
+
+    .main-content p, .main-content ul, .main-content li {
+        font-size: 12px;
+    }
+
+    .edit-icon {
+        font-size: 18px;
+    }
+}
+ 
+
+  
+  

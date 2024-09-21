@@ -1,0 +1,236 @@
+.footer {
+    padding: 4rem 6rem;
+    background: #024950;
+    color: #fff;
+}
+
+/* General styles for all screen sizes */
+.top {
+    display: flex;
+    align-items: center;
+    text-align: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.top h1{
+    font-size: 2rem; /* Adjust size as needed */
+  font-weight: bold;
+  color: #fff; /* Text color */
+  text-transform: uppercase; /* Optional: capitalize text */
+  letter-spacing: 2px; /* Optional: space between letters */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: shadow effect */
+  cursor: pointer; /* Optional: add cursor pointer effect */
+  transition: color 0.3s ease;
+}
+.top h1:hover{
+   
+    transform: scale(1.05);
+}
+
+
+.top i {
+    color: #fff;
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.top i:hover {
+    color: #0fa4af;
+}
+
+.center {
+    padding-top: 2rem;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.center div {
+    display: flex;
+    flex-direction: column;
+}
+
+.center h4 {
+    font-size: 1.3rem;
+    padding: 1rem 0 0.8rem 0;
+    color: #fff;
+}
+
+.center h5 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.center h6 {
+    font-size: 0.7rem;
+    font-weight: 300;
+}
+
+.center a {
+    text-decoration: none;
+    color: #fafafa;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive styles for larger screens */
+@media (max-width: 1200px) {
+    .footer {
+        padding: 3rem 5rem;
+    }
+
+    .top {
+        flex-direction: row;
+    }
+
+    .center {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+/* Responsive styles for tablets and smaller devices */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 3rem 4rem;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top i {
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .center {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+
+    .center div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 850px) {
+    .footer {
+        padding: 2rem 3rem;
+    }
+
+    .top {
+        font-size: 1rem;
+    }
+
+    .top i {
+        font-size: 1.7rem;
+        margin-left: 0.5rem;
+    }
+
+    .center {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+
+    .center div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive styles for small mobile devices */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 2rem;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top i {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+
+    .center {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1rem;
+    }
+
+    .center div {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Responsive styles for extra small mobile devices */
+@media (max-width: 600px) {
+    .footer {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .top {
+        font-size: 0.9rem;
+    }
+
+    .top i {
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .center h4 {
+        font-size: 1.1rem;
+    }
+
+    .center h5 {
+        font-size: 0.9rem;
+    }
+
+    .center h6 {
+        font-size: 0.6rem;
+    }
+
+    .center a {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive styles for very small mobile devices */
+@media (max-width: 480px) {
+    .footer {
+        padding: 1rem 1rem;
+    }
+
+    .top {
+        font-size: 0.8rem;
+    }
+
+    .top i {
+        font-size: 1.4rem;
+        margin-left: 0.3rem;
+    }
+
+    .center h4 {
+        font-size: 1rem;
+    }
+
+    .center h5 {
+        font-size: 0.85rem;
+    }
+
+    .center h6 {
+        font-size: 0.55rem;
+    }
+
+    .center a {
+        font-size: 0.9rem;
+    }
+}

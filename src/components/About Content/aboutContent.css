@@ -1,0 +1,982 @@
+/* Main CSS */
+.main {
+  padding-top: 70px;
+}
+
+/* Upper Head Of Page */
+.upper-head-about {
+  background-color: #005f5f;
+  padding: 80px;
+  border-radius: 0 0 8rem 0;
+}
+.upper-head-about h1 {
+  padding-top: 5px;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+.upper-head-about p {
+  margin-top: 2rem;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0 250px;
+  font-family: sans-serif;
+}
+
+/* Introduction section of page */
+.introduction {
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.introduction img {
+  padding-left: 3rem;
+  width: 45%;
+  height: auto;
+  border-radius: 10rem 0 10rem 0;
+}
+.introduction div {
+  margin-bottom: 2.5rem;
+}
+
+.introduction h2 {
+  justify-content: center;
+  color: #003140;
+  font-size: 2rem;
+  font-family: sans-serif;
+}
+.introduction p {
+  margin-top: 1rem;
+  text-align: justify;
+  color: #003140;
+  padding-left: 80px;
+  padding-right: 80px;
+  /* padding: 0 100px; */
+  font-size: 1.1rem;
+  font-family: sans-serif;
+}
+.create-button-about {
+  margin-top: 20px;
+  text-decoration: none;
+  padding: 0.4rem 2rem;
+  justify-content: center;
+  border-radius: 100px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  border: 2px solid #003135;
+  background-color: #003135;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  display: inline-block;
+}
+.create-button-about:hover {
+  background-color: #fff;
+  color: #003135;
+}
+
+/* Marquee Section */
+.forMarquee {
+  overflow: hidden;
+  width: 60%;
+  padding-top: 3rem;
+  margin: 0 auto;
+}
+.forMarquee h2{
+  font-size: 1.2rem;
+  color: #003140;
+}
+
+.marquee {
+  padding-top: 2rem;
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 8s linear infinite;
+}
+
+.comp-icon {
+  font-size: 6rem;
+  margin: 0 20px;
+  color: #003140;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* What DO section */
+.whatDo {
+  margin: 4rem 6rem;
+}
+.whatDo h2 {
+  font-size: 2rem;
+  color: #003140;
+  font-family: sans-serif;
+  justify-content: center;
+}
+.first-step-whatDo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4.5rem;
+}
+.first-step-reverse-whatDo {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4.5rem;
+}
+
+.des-text-whatDo {
+  width: 50%;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #003140;
+}
+
+.des-text-whatDo h3 {
+  padding-bottom: 1rem;
+}
+.image1 {
+  position: relative;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  z-index: -99;
+}
+
+.image1 img {
+  width: 100%;
+  height: 300px;
+  border-radius: 0 5rem 0 5rem;
+  object-fit: cover;
+  box-shadow: -1px 1px 62px rgba(0, 0, 0, 0.19);
+}
+
+.image1 img:nth-child(2) {
+  position: absolute;
+  top: -15%;
+  right: 0;
+}
+
+/* Meet Our Team Section */
+.meet-our-team {
+  text-align: center;
+  padding: 4rem 0;
+}
+.meet-our-team .meet-h2{
+  margin-top: -3rem;
+  font-size: 2rem;
+  color: #003140;
+  font-family: sans-serif;
+  justify-content: center;
+}
+.meet-our-team .meet-p{
+  color: #003140;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+}
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.team-member {
+  background: #e9f5f5;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.team-member-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 0.4rem;
+}
+.team-member-name {
+  font-size: 1.5rem;
+  margin: 0.1rem 0 0.1rem;
+  color: #003135;
+  text-transform: uppercase;
+  justify-content: center;
+}
+.team-member-role {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+  justify-content: center;
+}
+.team-member-bio {
+  font-size: 0.95rem;
+  color: #003135;
+  margin-bottom: 1.5rem;
+}
+.team-member-social a {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+.team-member-social .instaHover:hover{
+  color: 	#E1306C;
+}
+.team-member-social .linkedInHover:hover{
+  color: 	#0072b1;
+}
+.team-member-social .facebookHover:hover{
+  color: 	#3b5998;
+}
+
+
+/* Testimonial Section */
+.testimonial-slider-upperData{
+  background-color: #005f5f;
+  border-radius: 8rem 0 8rem 0;
+}
+.testimonial-slider-upperData .testimonial-h2{
+  margin-top: 1rem;
+  padding-top: 2rem;
+  font-size: 2rem;
+  color: #fff;
+  font-family: sans-serif;
+  justify-content: center;
+}
+.testimonial-slider-upperData .testimonial-p{
+  color: #fff;
+  font-size: 1.1rem;
+  padding-top: 0.5rem;
+  justify-content: center;
+}
+.testimonial-slider {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  gap: 20px;
+  padding: 50px;
+  margin-bottom:1rem ;
+  overflow: hidden; /* Ensures slider content stays within bounds */
+}
+
+.testimonial {
+  /* background-color: #fff; */
+  padding: 20px;
+  border-radius: 2rem;
+  width: 300px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  overflow: hidden; /* Hide overflow content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.testimonial-message {
+  margin-top: -10px;
+  font-size: 0.9rem;
+  justify-content: center;
+  color: #fff;
+  text-align: justify;
+  overflow: hidden; /* Ensure message text is contained */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+.testimonial-rating {
+  font-size: 15px;
+  justify-content: center;
+
+}
+
+.testimonial-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  /* background-color: #333; */
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 27%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.arrow.next {
+  font-size: 2rem;
+  right: -55px;
+}
+
+.arrow.prev {
+  font-size: 2rem;
+  left: -55px;
+}
+@media (max-width: 1029.33px){
+  .testimonial-slider {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    gap: 20px;
+    padding: 50px;
+    margin-bottom:2rem ;
+    overflow: hidden; /* Ensures slider content stays within bounds */
+  }
+}
+@media (max-width: 950px) {
+  /* Upper Head Of Page */
+  .upper-head-about h1 {
+    font-size: 2rem; /* Smaller font size for medium screens */
+  }
+  .upper-head-about p {
+    padding: 0 1rem; /* Adjusted padding for medium screens */
+    font-size: 1rem; /* Smaller font size for medium screens */
+  }
+
+  /* Introduction Section */
+  .introduction {
+    padding-top: 2rem; /* Adjusted padding for medium screens */
+    display: flex;
+  }
+  .introduction img {
+    width: 50%; /* Full width for medium screens */
+    padding-left: 1rem; /* Adjusted padding */
+    padding-right: 1rem; /* Adjusted padding */
+  }
+  .introduction h2 {
+    font-size: 2rem; /* Smaller font size for heading */
+  }
+  .introduction p {
+    padding-left: 1.6rem; /* Adjusted padding */
+    padding-right: 1.6rem; /* Adjusted padding */
+    font-size: 1.1rem; /* Smaller font size for paragraph */
+  }
+  .create-button-about {
+    padding: 0.5rem 1rem; /* Adjusted padding for medium screens */
+    font-size: 0.9rem; /* Smaller font size for button */
+    letter-spacing: 1px; /* Adjusted letter spacing */
+    align-items: center; /* Center align items */
+  }
+
+  /* Marquee Section */
+  .forMarquee {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 1rem; /* Adjusted padding for medium screens */
+    padding: 0 20px;
+  }
+  .forMarquee h2 {
+    font-size: 1.2rem; /* Adjusted font size for medium screens */
+    color: #003140;
+  }
+  .marquee {
+    padding-top: 1.5rem;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .comp-icon {
+    font-size: 3.5rem; /* Slightly larger icon size */
+  }
+
+  /* What Do Section */
+  .whatDo {
+    margin: 2rem 1rem; /* Adjusted margins for medium screens */
+  }
+  .whatDo h2 {
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  
+  .first-step-whatDo, .first-step-reverse-whatDo {
+    display: flex;
+  }
+  .des-text-whatDo {
+    width: 100%; /* Full width for medium screens */
+    padding: 0 10px; /* Adjusted padding */
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .des-text-whatDo h3 {
+    margin-top: -1.5rem; /* Adjusted margin */
+    padding-bottom: 0.5rem;
+  }
+  .image1 {
+    width: 100%; /* Full width for medium screens */
+    padding: 20px;
+    height: 350px; /* Adjusted height */
+  }
+  .image1 img {
+    height: auto; /* Adjusted height */
+  }
+
+  /* Meet Our Team Section */
+  .meet-our-team {
+    padding: 3rem; /* Adjusted padding */
+  }
+  .meet-our-team .meet-h2 {
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  .meet-our-team .meet-p {
+    font-size: 1rem; /* Adjusted font size */
+    padding: 0 15px; /* Adjusted padding */
+    text-align: center;
+  }
+  .team-member {
+    padding: 1.5rem; /* Adjusted padding */
+  }
+  .team-member-image {
+    width: 60px; /* Adjusted size */
+    height: 60px; /* Adjusted size */
+  }
+  .team-member-name {
+    font-size: 1.2rem; /* Adjusted font size */
+  }
+  .team-member-role {
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .team-member-bio {
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+  /* Testimonial Section */
+  .testimonial-slider-upperData {
+      background-color: #005f5f;
+      border-radius: 8rem 0 8rem 0;
+  }
+  .testimonial-slider-upperData .testimonial-h2 {
+    margin-top: -1.5rem; /* Adjusted margin */
+  
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  .testimonial-slider-upperData .testimonial-p {
+    text-align: center;
+  
+    font-size: 1rem; /* Adjusted font size */
+    padding: 0 30px; /* Adjusted padding */
+  }
+  .testimonial-slider {
+    width: 80%; /* Full width for medium screens */
+    padding: 20px 50px; /* Adjusted padding */
+  }
+  .testimonial {
+    width: 90%; /* Adjusted width */
+    padding: 15px; /* Adjusted padding */
+    height: auto; /* Flexible height */
+    max-width: none; /* Remove max-width restriction */
+  }
+  .testimonial-message {
+    font-size: 0.8rem; /* Adjusted font size */
+  }
+  .testimonial-rating {
+    font-size: 20px; /* Adjusted font size */
+  }
+  .testimonial-name {
+    font-size: 1.1rem; /* Adjusted font size */
+  }
+  .arrow {
+    width: 30px; /* Adjusted size */
+    height: 30px; /* Adjusted size */
+    top:40px;
+  }
+  .arrow.next {
+    right: -20px; /* Adjusted position */
+    font-size: 20px;
+  }
+  .arrow.prev {
+    left: -20px; /* Adjusted position */
+    font-size: 20px;
+  }
+}
+@media (max-width: 850px) {
+  /* Upper Head Of Page */
+  .upper-head-about h1 {
+    font-size: 2rem; /* Smaller font size for medium screens */
+  }
+  .upper-head-about p {
+    padding: 0 1rem; /* Adjusted padding for medium screens */
+    font-size: 1rem; /* Smaller font size for medium screens */
+  }
+
+  /* Introduction Section */
+  .introduction {
+    padding-top: 2rem; /* Adjusted padding for medium screens */
+    display: block;
+  }
+  .introduction img {
+    width: 100%; /* Full width for medium screens */
+    padding-left: 1rem; /* Adjusted padding */
+    padding-right: 1rem; /* Adjusted padding */
+  }
+  .introduction h2 {
+    font-size: 1.8rem; /* Smaller font size for heading */
+  }
+  .introduction p {
+    padding-left: 1rem; /* Adjusted padding */
+    padding-right: 1rem; /* Adjusted padding */
+    font-size: 1rem; /* Smaller font size for paragraph */
+  }
+  .create-button-about {
+    padding: 0.5rem 1rem; /* Adjusted padding for medium screens */
+    font-size: 0.9rem; /* Smaller font size for button */
+    letter-spacing: 1px; /* Adjusted letter spacing */
+    align-items: center; /* Center align items */
+  }
+
+  /* Marquee Section */
+  .forMarquee {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 1rem; /* Adjusted padding for medium screens */
+  }
+  .forMarquee h2 {
+    font-size: 1.2rem; /* Adjusted font size for medium screens */
+    color: #003140;
+  }
+  .marquee {
+    padding-top: 1.5rem;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .comp-icon {
+    font-size: 3.5rem; /* Slightly larger icon size */
+  }
+
+  /* What Do Section */
+  .whatDo {
+    margin: 2rem 1rem; /* Adjusted margins for medium screens */
+  }
+  .whatDo h2 {
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  
+  .first-step-whatDo, .first-step-reverse-whatDo {
+    display: block;
+  }
+  .des-text-whatDo {
+    width: 100%; /* Full width for medium screens */
+    padding: 0 20px; /* Adjusted padding */
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .des-text-whatDo h3 {
+    margin-top: -1.5rem; /* Adjusted margin */
+    padding-bottom: 0.5rem;
+  }
+  .image1 {
+    width: 100%; /* Full width for medium screens */
+    padding: 20px;
+    height: 350px; /* Adjusted height */
+  }
+  .image1 img {
+    height: auto; /* Adjusted height */
+  }
+
+  /* Meet Our Team Section */
+  .meet-our-team {
+    padding: 1.5rem; /* Adjusted padding */
+  }
+  .meet-our-team .meet-h2 {
+    margin-top: -1rem;
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  .meet-our-team .meet-p {
+    font-size: 1rem; /* Adjusted font size */
+    padding: 0 15px; /* Adjusted padding */
+    text-align: center;
+  }
+  .team-member {
+    padding: 1.5rem; /* Adjusted padding */
+  }
+  .team-member-image {
+    width: 60px; /* Adjusted size */
+    height: 60px; /* Adjusted size */
+  }
+  .team-member-name {
+    font-size: 1.2rem; /* Adjusted font size */
+  }
+  .team-member-role {
+    font-size: 1rem; /* Adjusted font size */
+  }
+  .team-member-bio {
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+
+
+  .testimonial-slider-upperData .testimonial-h2 {
+    margin-top: -1.5rem; /* Adjusted margin */
+   
+    font-size: 1.8rem; /* Adjusted font size */
+  }
+  .testimonial-slider-upperData .testimonial-p {
+    text-align: center;
+    font-size: 1rem; /* Adjusted font size */
+    padding: 0 15px; /* Adjusted padding */
+  }
+  .testimonial-slider {
+    width: 100%; /* Full width for medium screens */
+    padding: 20px 80px; /* Adjusted padding */
+  }
+  .testimonial {
+    width: 90%; /* Adjusted width */
+    padding: 15px; /* Adjusted padding */
+    height: auto; /* Flexible height */
+    max-width: none; /* Remove max-width restriction */
+  }
+  .testimonial-message {
+    font-size: 0.9rem; /* Adjusted font size */
+  }
+  .testimonial-rating {
+    font-size: 15px; /* Adjusted font size */
+  }
+  .testimonial-name {
+    font-size: 1.1rem; /* Adjusted font size */
+  }
+  .arrow {
+    width: 30px; /* Adjusted size */
+    height: 30px; /* Adjusted size */
+    top:50px;
+  }
+  .arrow.next {
+    right: -30px; /* Adjusted position */
+  }
+  .arrow.prev {
+    left: -30px; /* Adjusted position */
+  }
+}
+@media (max-width: 650px) {
+  /* Apply styles specific to screens 300px or less */
+ 
+  .upper-head-about h1 {
+    font-size: 1.9rem; /* Smaller font size for smaller screens */
+  }
+  .upper-head-about p {
+    padding: 0; /* Adjust padding for smaller screens */
+    font-size: 0.95rem; /* Smaller font size for smaller screens */
+  }
+  .introduction {
+    padding-top: 3rem; /* Reduce padding for smaller screens */
+    display: block;
+  }
+  .introduction img {
+    width: 100%; /* Make image full width */
+    padding-left: 1.6rem; /* Remove left padding */
+    padding-right: 1.6rem;
+  }
+  .introduction h2 {
+    font-size: 1.6rem; /* Smaller font size for heading */
+  }
+  .introduction p {
+    padding-left: 1rem; /* Adjust padding for smaller screens */
+    padding-right: 1rem; /* Adjust padding for smaller screens */
+    font-size: 0.95rem; /* Smaller font size for paragraph */
+    justify-content: center;
+  }
+  .create-button-about {
+    padding: 0.4rem 0.5rem; /* Adjust padding for smaller screens */
+    font-size: 0.8rem; /* Smaller font size for button */
+    letter-spacing: 1px; /* Adjust letter spacing */
+    align-items:start;
+  }
+  .forMarquee {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 0.1rem;
+  }
+  .forMarquee h2{
+    font-size: 1rem;
+    color: #003140;
+  }
+  .marquee {
+    padding-top: 1.5rem;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .comp-icon {
+    font-size: 3rem;
+  }
+  
+  .whatDo {
+    margin: 3rem 0; /* Adjust margin for small screens */
+  }
+  .whatDo h2 {
+    font-size: 1.6rem;
+  }
+  .first-step-whatDo {
+    display: block;
+  }
+  .first-step-reverse-whatDo {
+    display: block;
+  }
+  .des-text-whatDo {
+    width: 100%;
+    padding: 0 30px;
+    font-size: 0.95rem;
+  }
+  .des-text-whatDo h3 {
+    margin-top: -2.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .image1 {
+    width: 100%;
+    padding: 20px 20px 0;
+    height: 270px;
+  }
+  .image1 img {
+    height: auto;
+  }
+  .meet-our-team {
+    padding: 1rem;
+  }
+  .meet-our-team .meet-h2 {
+    margin-top: -1rem;
+    font-size: 1.6rem;
+  }
+  .meet-our-team .meet-p {
+    font-size: 0.95rem;
+    padding: 0 20px;
+  }
+  .team-member {
+    padding: 2rem;
+  }
+  .team-member-image {
+    width: 50px;
+    height: 50px;
+  }
+  .team-member-name {
+    font-size: 1rem;
+  }
+  .team-member-role {
+    font-size: 0.9rem;
+  }
+  .team-member-bio {
+    font-size: 0.8rem;
+  }
+  
+  .testimonial-slider-upperData .testimonial-h2 {
+    margin-top: -2rem;
+    font-size: 1.6rem;
+  }
+  .testimonial-slider-upperData .testimonial-p {
+    font-size: 0.95rem;
+    padding: 0 20px;
+  }
+  .testimonial-slider {
+    width: 100%; /* Full width for slider */
+    height: 250px;
+    padding: 20px 80px; /* Adjust padding for smaller screens */
+  }
+  .testimonial {
+    width: 80%; /* Full width for testimonial */
+    padding: 10px; /* Adjust padding for smaller screens */
+    height: 300px; /* Flexible height */
+    max-width: none; /* Remove max-width restriction */
+  }
+  .testimonial-message {
+    margin-top: 1rem;
+    font-size: 0.8rem; /* Smaller font size for message */
+  }
+  .testimonial-rating {
+    font-size: 18px; /* Adjust font size for rating */
+  }
+  .testimonial-name {
+    font-size: 1rem; /* Smaller font size for name */
+  }
+  .arrow {
+    width: 25px; /* Smaller arrow width */
+    height: 25px; /* Smaller arrow height */
+    top: 70px;
+  }
+  .arrow.next {
+    right: -30px; /* Adjust position for smaller screens */
+  }
+  .arrow.prev {
+    left: -30px; /* Adjust position for smaller screens */
+  }
+}
+@media (max-width: 450px) {
+  /* Apply styles specific to screens 300px or less */
+  .upper-head-about {
+    padding: 40px; /* Adjust padding for smaller screens */
+  }
+  .upper-head-about h1 {
+    font-size: 1.5rem; /* Smaller font size for smaller screens */
+  }
+  .upper-head-about p {
+    padding: 0 1px; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Smaller font size for smaller screens */
+  }
+  .introduction {
+    padding-top: 2rem; /* Reduce padding for smaller screens */
+    display: block;
+  }
+  .introduction img {
+    width: 100%; /* Make image full width */
+    padding-left: 1.4rem; /* Remove left padding */
+    padding-right: 1.4rem;
+  }
+  .introduction h2 {
+    font-size: 1.2rem; /* Smaller font size for heading */
+  }
+  .introduction p {
+    padding-left: 1rem; /* Adjust padding for smaller screens */
+    padding-right: 1rem; /* Adjust padding for smaller screens */
+    font-size: 0.8rem; /* Smaller font size for paragraph */
+    justify-content: center;
+  }
+  .create-button-about {
+    padding: 0.4rem 0.5rem; /* Adjust padding for smaller screens */
+    font-size: 0.8rem; /* Smaller font size for button */
+    letter-spacing: 1px; /* Adjust letter spacing */
+    align-items:start;
+  }
+  .forMarquee {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 0.1rem;
+  }
+  .forMarquee h2{
+    font-size: 1rem;
+    color: #003140;
+  }
+  .marquee {
+    padding-top: 1.5rem;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .comp-icon {
+    font-size: 3rem;
+  }
+  
+  .whatDo {
+    margin: 3rem 0; /* Adjust margin for small screens */
+  }
+  .whatDo h2 {
+    font-size: 1.2rem;
+  }
+  .first-step-whatDo {
+    display: block;
+  }
+  .first-step-reverse-whatDo {
+    display: block;
+  }
+  .des-text-whatDo {
+    width: 100%;
+    padding: 0 20px;
+    font-size: 0.9rem;
+  }
+  .des-text-whatDo h3 {
+    margin-top: -2.5rem;
+    padding-bottom: 1rem;
+  }
+  .image1 {
+    width: 100%;
+    height: 200px;
+  }
+  .image1 img {
+    height: auto;
+  }
+  .meet-our-team {
+    padding: 1rem;
+  }
+  .meet-our-team .meet-h2 {
+    margin-top: -1.2rem;
+    font-size: 1.2rem;
+  }
+  .meet-our-team .meet-p {
+    font-size: 0.9rem;
+  }
+  .team-member {
+    padding: 2rem;
+  }
+  .team-member-image {
+    width: 50px;
+    height: 50px;
+  }
+  .team-member-name {
+    font-size: 1rem;
+  }
+  .team-member-role {
+    font-size: 0.9rem;
+  }
+  .team-member-bio {
+    font-size: 0.8rem;
+  }
+  /* .testimonial-slider-upperData{
+    height: 350px;
+  } */
+  .testimonial-slider-upperData .testimonial-h2 {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+  .testimonial-slider-upperData .testimonial-p {
+    font-size: 0.8rem;
+    padding: 0 50px;
+  }
+  .testimonial-slider {
+    margin-top: 1rem;
+    width: 100%; /* Full width for slider */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+  .testimonial {
+    width: 90%; /* Full width for testimonial */
+    padding: 10px; /* Adjust padding for smaller screens */
+    height: 300px; /* Flexible height */
+    max-width: none; /* Remove max-width restriction */
+  }
+  .testimonial-message {
+    font-size: 0.7rem; /* Smaller font size for message */
+    padding: 0 20px;
+  }
+  .testimonial-rating {
+    font-size: 13px; /* Adjust font size for rating */
+  }
+  .testimonial-name {
+    font-size: 1rem; /* Smaller font size for name */
+  }
+  .arrow {
+    top: 40px;
+    width: 25px; /* Smaller arrow width */
+    height: 25px; /* Smaller arrow height */
+  }
+  .arrow.next {
+    right: -10px; /* Adjust position for smaller screens */
+  }
+  .arrow.prev {
+    left: -10px; /* Adjust position for smaller screens */
+  }
+}
+
+
+
+
+
+
+

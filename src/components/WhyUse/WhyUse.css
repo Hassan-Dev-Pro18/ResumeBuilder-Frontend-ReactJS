@@ -1,0 +1,201 @@
+.show1 {
+    text-decoration: none;
+    padding: 0.4rem 2rem;
+    justify-content: center;
+    border-radius: 100px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #003135;
+    background-color: #003135;
+    color: #fff;
+}
+
+.show1:hover {
+    background-color: #fff;
+    color: #003135;
+}
+
+.popular {
+    .secContainer {
+        .title {
+            color: black;
+            line-height: 1.5rem;
+            padding-bottom: 0.5rem;
+            padding-top: 2rem;
+            padding-left: 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+
+        .mainContent {
+            display: flex;
+            gap: 1rem;
+            padding: 2rem 2rem;
+
+            .singleItem {
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+                border-radius: 15px;
+                text-align: center;
+                width: 50%;
+                padding: 0.5rem;
+
+                img {
+                    background: #afdde5;
+                    width: 120px;
+                    border-radius: 50%;
+                    padding: 1rem;
+                }
+
+                h5 {
+                    font-weight: 700;
+                    font-size: 1.18rem;
+                    color: #000;
+                    padding: 0.5rem;
+                }
+
+                p {
+                    font-size: 13px;
+                    font-weight: 500;
+                    padding-bottom: 1rem;
+                    color: #000;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .popular {
+        .secContainer {
+            .title {
+                font-size: 1.3rem;
+            }
+            
+            .mainContent {
+                flex-direction: column;
+                gap: 1.5rem;
+                
+                .singleItem {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-bottom: 1rem;
+                    padding: 1rem;  /* Added padding for extra space */
+                    
+                    img {
+                        width: 100px;
+                    }
+                    
+                    h5 {
+                        font-size: 1rem;
+                    }
+                    
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popular {
+        .secContainer {
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .mainContent {
+                gap: 1.5rem;
+                
+                .singleItem {
+                    width: 100%;
+                    margin: 0 auto;
+                    margin-bottom: 1.5rem;  /* Added margin for more spacing */
+                    padding: 1.5rem;  /* Increased padding for a cleaner look */
+                    
+                    img {
+                        width: 90px;
+                    }
+                    
+                    h5 {
+                        font-size: 0.9rem;
+                    }
+                    
+                    p {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .popular {
+        .secContainer {
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .mainContent {
+                display: block;
+                gap: 2rem;
+                padding: 2rem 2rem;
+                
+                .singleItem {
+                    text-align: center;
+                    width: 100%;
+                    margin-bottom: 2rem;  /* Added bottom margin */
+                    padding: 1rem;
+                    
+                    p {
+                        font-size: 13px;
+                        font-weight: 500;
+                        padding-bottom: 1rem;
+                        color: black;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .popular {
+        .secContainer {
+            .title {
+                font-size: 1rem;
+                padding-top: 1rem;
+                padding-bottom: 0.5rem;
+            }
+            
+            .mainContent {
+                padding: 1rem;
+                gap: 1rem;
+
+                .singleItem {
+                    margin-bottom: 1rem;  /* Consistent bottom margin */
+                    padding: 1rem;  /* Padding for uniform spacing */
+                    
+                    img {
+                        width: 80px;
+                    }
+                    
+                    h5 {
+                        font-size: 0.85rem;
+                    }
+                    
+                    p {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

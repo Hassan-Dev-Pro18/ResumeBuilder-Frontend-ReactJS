@@ -1,0 +1,190 @@
+/* Container for the entire form area */
+
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #005f5f 100%);
+}
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+/* Form container styles */
+/* .form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+} */
+.form-container {
+  background: rgba(236, 236, 236, 0.8); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input field styles */
+/* Container for each input field */
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Icon style */
+.input-container .icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 18px;
+}
+
+/* Input field style */
+.input-container input {
+  width: 100%;
+  background: rgba(236, 236, 236, 0.8); /*Extra*/
+  padding: 12px 15px 12px 40px; /* Adjust padding to make room for the icon */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state for input fields */
+.input-container input:focus {
+  border-color: #005f5f;
+  box-shadow: 0 0 5px rgba(10, 147, 185, 0.5);
+  outline: none;
+}
+
+
+/* Button styles */
+.btn {
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #003135;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #005f5f;
+  color: #fff;
+  border: none;
+}
+
+/* Text paragraph styles */
+.para {
+  
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+.forget {
+  
+  justify-content: center;
+  margin-top: 2px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+.forget:hover{
+  text-decoration: underline;
+  color: #005f5f;
+}
+
+/* Span button styles */
+.btn-span {
+  color: #005f5f;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Span button hover effect */
+.btn-span:hover {
+  text-decoration: underline;
+}
+
+/* Adding some animation for better transitions */
+.motion {
+  transition: all 0.06s ease-in-out;
+}
+
+.loginh2 {
+  text-align: center;
+  justify-content: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+}
+.upper-display-text{
+  color: black;
+  margin-bottom: 10px;
+}
+/* Existing styles... */
+
+/* Loading Overlay Styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinner Styles */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #005f5f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 500px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  input, .btn {
+    font-size: 14px;
+  }
+}
