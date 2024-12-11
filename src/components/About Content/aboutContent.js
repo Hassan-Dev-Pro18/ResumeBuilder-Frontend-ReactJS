@@ -31,9 +31,9 @@ function AboutContent() {
     <div className="main">
       {/* Upper Headre of page */}
       <div className="upper-head-about">
-        <h1>About Us | Resumify</h1>
+        <h1>About Us | Resume Builder</h1>
         <p>
-          Welcome to Resumify, where we are dedicated to helping professionals
+          Welcome again, where we are dedicated to helping professionals
           and job seekers create standout resumes that capture their unique
           skills and experiences. Our mission is to empower individuals with the
           tools they need to advance their careers and achieve their
@@ -50,9 +50,9 @@ function AboutContent() {
         <img src={H1} alt="" />
 
         <div>
-          <h2>About Resumify</h2>
+          <h2>About ResumeBuilder</h2>
           <p>
-            At Resumify, we provide an intuitive Resume Builder that guides job
+            At ResumeBuilder, we provide an intuitive Resume Builder that guides job
             seekers in crafting the perfect resume. Our platform offers valuable
             templates, tips, skill enhancement and expert advice to make your
             resume stand out to employers. We offer a resume analysis feature in
@@ -94,7 +94,7 @@ function AboutContent() {
           <div className="des-text-whatDo">
             <h3>Our Mission</h3>
             <p>
-              At Resumify, our mission is to empower individuals to confidently
+              At ResumeBuilder, our mission is to empower individuals to confidently
               present their skills, experiences, and aspirations through
               expertly crafted resumes. We are dedicated to simplifying the
               resume-building process with intuitive tools and innovative
@@ -112,7 +112,7 @@ function AboutContent() {
           <div className="des-text-whatDo">
             <h3>Our Vission</h3>
             <p>
-              At Resumify, we envision a world where every individual can
+              At ResumeBuilder, we envision a world where every individual can
               showcase their unique talents and achievements with clarity and
               confidence. Our goal is to revolutionize the resume-building
               experience through cutting-edge technology and user-friendly
@@ -133,7 +133,7 @@ function AboutContent() {
       <div className="testimonial-slider-upperData">
         <h2 className="testimonial-h2">What users say about us</h2>
         <p className="testimonial-p">
-        What members are saying about our Resumify Resume Builder
+        What members are saying about our Resume Builder
         </p>
         <TestimonialSlider />
       </div>
@@ -141,7 +141,7 @@ function AboutContent() {
         <h2 className="meet-h2">Meet Our Team</h2>
         <p className="meet-p">
           Get to know our passionate professionals, experts and technologist
-          team behind Resumify
+          team behind Resume Builder
         </p>
         <div className="team-members" data-aos="fade-up">
           {teamMembers.map((member) => (

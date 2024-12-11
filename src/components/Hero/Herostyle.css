@@ -4,6 +4,7 @@
     padding-bottom: 2rem;
     padding-top: 3.2rem;
     background-color: #024950;
+    border-radius: 0 0 0 8rem;
 }
 
 .hero-container {
@@ -29,28 +30,36 @@
 }
 
 .image-container {
-    width: 35rem;
+    width: 30rem;
     height: 30rem;
     overflow: hidden;
-   border-radius: 8rem 8rem 8rem 0;
+    position: relative;
+   /* border-radius: 100%;
     border: 8px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;  */
 }
 
-.image-container:hover {
+/* .image-container:hover {
     transform: scale(1.05) rotate(2deg);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
     animation: shake 0.5s;
     animation-iteration-count: 1;
-}
+} */
 
 .image-container > img {
     width: 100%;
-    height: 100%;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
-    /* object-fit: cover; */
+    height: 90%;
+    animation: zoomInOut 6s infinite ease-in-out;
 }
+@keyframes zoomInOut {
+    0%, 100% {
+      transform: scale(1); 
+    }
+    50% {
+      transform: scale(1.077); 
+    }
+  }
 
 
 
@@ -70,7 +79,8 @@
 }
 
 .hero-left {
-    gap: 1.5rem;
+    margin-top: 2.9rem;
+    gap: 1rem;
 }
 
 .hero-title {
@@ -88,7 +98,7 @@
 
 .hero-title > h1 {
     font-weight: 600;
-    font-size: 2.6rem;
+    font-size: 2.17rem;
     line-height: 4rem;
 }
 
@@ -107,6 +117,8 @@
     transform: translateY(100px);
     opacity: 0;
     transition: transform 1s, opacity 1s;
+    font-size: 1.03rem;
+    font-weight: 400;
 }
 
 .hero-des[data-aos="fade-up"] {
@@ -128,15 +140,15 @@
 }
 
 .text {
-    color: #cdcbcb;
+    color: #fff;
 }
 
 .show {
     text-decoration: none;
-    padding: 0.4rem 2rem;
+    padding: 0.4rem 0.5rem;
     justify-content: center;
-    border-radius: 100px;
-    font-size: 1.1rem;
+    border-radius: 15px;
+    font-size: 0.96rem;
     font-weight: bold;
     letter-spacing: 2px;
     border: 2px solid #003135;
@@ -171,6 +183,14 @@
 }
 
 @media screen and (max-width: 640px) {
+    .hero-title > h1 {
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
+    .hero-des{
+        font-size: 0.813rem;
+        
+    }
     .hero-container {
         margin-top: 2rem;
         flex-direction: column;
@@ -190,5 +210,11 @@
     .show {
         padding: 0.3rem 1.5rem;
         font-size: 1rem;
+    }
+}
+@media screen and (max-width: 430px){
+    .hero-des{
+        font-size: 0.718rem;
+        
     }
 }

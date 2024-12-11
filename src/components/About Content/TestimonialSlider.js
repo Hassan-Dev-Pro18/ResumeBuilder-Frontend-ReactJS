@@ -6,24 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
 import "./aboutContent.css";
 
-// const testimonials = [
-//   {
-//     name: "John Doe",
-//     message: "Nilda Melissa Díaz is a Certified Professional Resume Writer who has worked for the Washington Post, Stringr and Latina Style Magazine. She has a master’s in journalism from Columbia University and is a member of the National Association of Hispanic Journalists.",
-//     rating: 5,
-//   },
-//   {
-//     name: "Jane Smith",
-//     message: "Nilda Melissa Díaz is a Certified Professional Resume Writer who has worked for the Washington Post, Stringr and Latina Style Magazine. She has a master’s in journalism from Columbia University and is a member of the National Association of Hispanic Journalists.",
-//     rating: 4,
-//   },
-//   {
-//     name: "Michael Johnson",
-//     message: "Nilda Melissa Díaz is a Certified Professional Resume Writer who has worked for the Washington Post, Stringr and Latina Style Magazine. She has a master’s in journalism from Columbia University and is a member of the National Association of Hispanic Journalists.",
-//     rating: 3,
-//   },
-  
-// ];
+
 
 
 const TestimonialSlider = () => {

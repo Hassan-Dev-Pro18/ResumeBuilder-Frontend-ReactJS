@@ -160,8 +160,7 @@ const ContactUs = () => {
     <div className="main">
       {/* Upper Headre of page */}
       <div className="upper-head">
-        <h1>Contact Us | Resumify</h1>
-        <h1 className="title">Get in Touch</h1>
+        <h1>Contact Us | Resume Builder</h1>
         <p>
           We're here to help you with any questions, concerns, or feedback you
           may have. You can reach us through the form below or contact info.
@@ -183,7 +182,7 @@ const ContactUs = () => {
           </div>
           <div className="contact-item">
             <FaEnvelope className="contact-icon" />
-            <span>Resumify@gmail.com</span>
+            <span>ResumeBuilder@gmail.com</span>
           </div>
           <div className="contact-item">
             <FaMapMarkerAlt className="contact-icon" />
@@ -243,11 +242,12 @@ const ContactUs = () => {
             </div>
             <motion.button
               type="submit"
-              className="submit-button"
+              className="submit-button-contact"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               disabled={isSubmitting}
             >
+              
               {isSubmitting ? "Sending" : "Send"}
             </motion.button>
           </form>
@@ -257,16 +257,13 @@ const ContactUs = () => {
 
       {/* Map Contant */}
 
-      <div className="map">
-        {/* Map Header */}
+      {/* <div className="map">
         <h1>We’re here for you</h1>
         <p>
           Visit at the location below. We are open from 9:00 AM to 6:00 PM,
           Monday through Friday. Use the map to get directions or to learn more
           about our surroundings.
         </p>
-
-        {/* Map Frame */}
 
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3432.6956089110495!2d73.14597757545941!3d30.64253502462798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922b6e4dde0c501%3A0xc37ea3d85326203!2sCOMSATS%20University%20Islamabad%20-%20Sahiwal%20Campus!5e0!3m2!1sen!2s!4v1685698700708!5m2!1sen!2s"
@@ -277,7 +274,7 @@ const ContactUs = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
+      </div> */}
 
       {/* FAQ Section */}
 

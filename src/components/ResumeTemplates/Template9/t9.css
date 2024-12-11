@@ -1,0 +1,89 @@
+.t9-resume {
+    display: flex;
+    width: 800px;
+    margin: auto;
+  }
+  
+  /* Left Column */
+  .t9-left-column {
+    background-color: #5a4033;
+    color: #fff;
+    width: 35%;
+    padding: 20px;
+  }
+  
+  
+  .t9-profile-picture .t9-img{
+    width: 140px;
+    height: 140px;
+    background-color: #c9c9c9;
+    border-radius: 50%;
+    margin: 5px 30px;
+  }
+  
+  
+  .t9-left-section .t9-left-section-h2 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+  .t9-left-section .t9-left-contact-ul{
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .t9-left-section .t9-left-edu-ul .t9-left-edu-li{
+    margin-top: 1rem;
+    font-weight: 300;
+  }
+  .t9-left-section .t9-left-skills-ul{
+    padding-left: 15px;
+  }
+  .t9-left-section .t9-left-skills-ul .t9-left-skills-li{
+    list-style: disc;
+    font-weight: 300;
+  } 
+  
+  /* Right Column */
+  .t9-right-column {
+    width: 65%;
+    padding: 20px;
+  }
+  
+  
+  .t9-header .t9-right-header-h1 {
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #5a4033;
+  }
+  .t9-header .t9-right-header-p{
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  .t9-right-section {
+    margin-bottom: 20px;
+  }
+  .t9-rihgt-section .t9-right-h2{
+    color: #5a4033;
+    border-bottom: 2px solid #5a4033;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 20px;
+  }
+  .t9-experience .t9-experience-h3 {
+    margin: 5px 0;
+    color: #555;
+  }
+  .t9-experience .t9-experience-p{
+    font-size: 1rem;
+  }
+  .t9-experience .t9-experience-ul{
+    padding-top: 5px;
+    padding-left: 15px;
+  }
+  .t9-experience .t9-experience-li{
+    list-style: disc;
+  }
+  

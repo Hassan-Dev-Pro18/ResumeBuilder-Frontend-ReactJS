@@ -1,0 +1,107 @@
+.resume-t3-main {
+    display: flex;
+    max-width: 1200px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .t2_container {
+    max-width: 850px;
+    position: relative;
+    border: 1px solid transparent; /* Default border */
+    transition: border-color 0.3s ease;
+    margin: auto;
+    /* border: 1px solid black; */
+    padding: -20px;
+
+    background-color: #fff;
+    box-shadow: 0 8px 10px rgba(0,0,0,0.1);
+}
+.t2_container:hover {
+    border-color: #003135; /* Border color on hover */
+  }
+  .t2_container:hover .edit-icon {
+    color: #003135; /* Icon color on hover */
+  }
+  .t3-left-column {
+    width: 35%;
+    background: #2e3c52;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .t3-left-column .t3-left-h1 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .t3-left-column h2 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #f4c21b;
+  }
+  
+  .t3-profile-pic .t3-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-top: 2rem;
+    margin-bottom: -5px;
+  }
+  
+  .t3-about-me,
+  .t3-skills,
+  .t3-contact {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .t3-about-me .t3-left-h3,
+  .t3-skills .t3-left-h3,
+  .t3-contact .t3-left-h3 {
+    color: #f4c21b;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .t3-skills .t3-skill-ul{
+    padding-left: 1rem;
+  }
+  .t3-skills .t3-skill-li{
+    list-style:disc;
+  }
+  
+  .t3-right-column {
+    width: 65%;
+    padding: 20px;
+  }
+  
+  .t3-right-column .t3-rigth-h3 {
+    color: #f4c21b;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .t3-job,
+  .t3-education {
+    margin-bottom: 30px;
+  }
+  
+  .t3-job .t3-job-h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .t3-job .t3-job-ul {
+    padding-left: 20px;
+    list-style: disc;
+  }
+  
+  .t3-degree .t3-degree-h4 {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .t3-degree .t3-degree-p {
+    margin: 0;
+  }
+  

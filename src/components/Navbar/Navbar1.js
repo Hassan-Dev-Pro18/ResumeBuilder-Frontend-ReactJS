@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <nav className="NavbarItems">
-      <h1 className="navbar-logo">Resumeify.</h1>
+      <h1 className="navbar-logo">Resume Builder</h1>
       <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
@@ -72,9 +72,7 @@ const Navbar = () => {
                   <div className="profile-icon-container">
                     <div className="profile-icon">
                       <span>{loggedInUser.charAt(0)}</span>
-                      {/* <button className="edit-button">
-                        <i className="fas fa-pencil-alt"></i>
-                      </button> */}
+                      
                     </div>
                     <p className="greeting">
                       Hi, {loggedInUser.split(" ")[0]}!
@@ -84,10 +82,7 @@ const Navbar = () => {
                   <button onClick={handleLogout} className="sign-out">
                     <i className="fas fa-sign-out-alt"></i> Sign out
                   </button>
-                  <div className="privacy-links">
-                    <Link to="/privacy-policy">Privacy Policy</Link> &bull;
-                    <Link to="/terms-of-service">Terms of Service</Link>
-                  </div>
+                  
                 </motion.div>
               )}
             </AnimatePresence>

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./AdminPage.css";
 import Navbar1 from '../Navbar/Navbar1';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const TestimonialsManagement = () => {
     const [messages, setMessages] = useState([]);
@@ -14,6 +16,7 @@ const TestimonialsManagement = () => {
             setMessages(response.data.Testimonials);
             console.log(response.data);
             setLoading(false);
+            toast.success("Testimonials deleted successfully!");
         } catch (error) {
             console.error('Error fetching messages:', error);
             setLoading(false);
@@ -80,6 +83,7 @@ const TestimonialsManagement = () => {
                     </table>
                     </div>
                 )}
+                <ToastContainer />
             </div>
         </div>
     );

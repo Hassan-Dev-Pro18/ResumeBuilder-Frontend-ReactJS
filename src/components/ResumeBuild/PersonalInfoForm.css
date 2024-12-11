@@ -1,59 +1,64 @@
 .prompt-box {
-  position: absolute;
-  top: 40%; /* Position the box below the input field */
-  left: -42%;
-  width: 40%;
-  max-width: 400px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-top: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.3s ease, transform 0.3s ease;
- 
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  width: 280px; 
+  background: #ffffff; 
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); 
+  border-radius: 12px; 
+  z-index: 1000;
+  border: 2px solid #003120; 
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(-20px); 
+  opacity: 0; 
 }
 
 
 .prompt-box p {
   margin: 0;
-  padding-top: 2px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 14px;
   color: #333;
+  text-align: left;
 }
 .prompt-box h3 {
   font-size: 18px;
   padding-top: 20px;
+  justify-content: center;
 }
 
 .close-btn {
   position: absolute;
-  top: 10px;
+  top: 1px;
   right: 10px;
   background: none;
   border: none;
   color: #333;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 2rem;
   cursor: pointer;
   
 }
 
 .close-btn:hover {
-  color: #007bff;
+  color: #000340;
 }
 
 @media (max-width: 1030px){
   .prompt-box {
     position: absolute;
-    top: 40%; /* Position the box below the input field */
-    left: 30%;
-    width: 50%; 
+    right: 10px;
+    top: 20%;
   }
   
 }
 @media (max-width: 850px){
   .prompt-box {
     position: absolute;
-    top: 60%; /* Position the box below the input field */
+    top: 60%; 
     left: 24%;
     width: 50%; 
   }

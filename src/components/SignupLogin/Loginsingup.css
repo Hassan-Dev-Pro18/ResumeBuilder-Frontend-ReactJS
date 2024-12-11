@@ -6,34 +6,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #f5f7fa 0%, #005f5f 100%);
+  margin-bottom: 2rem;
 }
-.error-message {
-  color: red;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-/* Form container styles */
-/* .form-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  width: 100%;
-  transition: transform 0.3s ease-in-out;
-} */
+
+
 .form-container {
   background: rgba(236, 236, 236, 0.8); /* Semi-transparent white */
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   max-width: 400px;
   width: 100%;
   transition: transform 0.3s ease-in-out;
+  margin-top: 6rem;
 }
 
-/* Form styles */
+.form-container1{
+  background: rgba(236, 236, 236, 0.8); /* Semi-transparent white */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 6rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -59,10 +57,10 @@ form {
 /* Input field style */
 .input-container input {
   width: 100%;
-  background: rgba(236, 236, 236, 0.8); /*Extra*/
+  background: rgba(236, 236, 236, 0.8); 
   padding: 12px 15px 12px 40px; /* Adjust padding to make room for the icon */
   border-radius: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid #aaa;
   box-sizing: border-box;
   font-size: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -81,8 +79,8 @@ form {
   padding: 12px;
   margin: 10px 0;
   background-color: #003135;
+  border: 2px solid #003135;
   color: white;
-  border: none;
   border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
@@ -91,16 +89,24 @@ form {
 
 /* Button hover effect */
 .btn:hover {
-  background-color: #005f5f;
-  color: #fff;
-  border: none;
+  background-color: #fff;
+  color: #003135;
+  /* border: none; */
 }
 
 /* Text paragraph styles */
 .para {
   
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-bottom: -10px;
+  font-size: 14px;
+  color: #333;
+}
+.para1 {
+  
+  justify-content: center;
+  margin-top: 10px;
   font-size: 14px;
   color: #333;
 }
@@ -170,7 +176,14 @@ form {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
-
+.eye-icon{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
 /* Spinner Animation */
 @keyframes spin {
   to {
@@ -180,8 +193,8 @@ form {
 
 
 @media (max-width: 500px) {
-  .form-container {
-    padding: 1rem;
+  .container {
+    padding: 2rem;
   }
 
   input, .btn {

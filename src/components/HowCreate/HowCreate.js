@@ -39,15 +39,15 @@ const HowCreate = () => {
       />
       <CreationData
         className="first-step"
-        heading="3.Customize Your Layout"
-        text="Make the resume template truly your own. Customize the layout based on your experience level.
-     Remove the sections if you not add in resume."
+        heading="3.Edit Your Resume"
+        text="Make the resume truly your own. Edit the resume easily by click on edit option in view of complete resume.
+     "
         img1={edit1}
         img2={edit2}
       />
       <CreationData
         className="first-step-reverse"
-        heading="4.Fill in the Blanks"
+        heading="4.Fill the Forms"
         text="Fill in your resume information including name of user, address, contact, 
         their education detail, certificate detail, projects detail, skills detail, hobbies, certificates etc. "
         img1={fill1}
@@ -55,7 +55,7 @@ const HowCreate = () => {
       />
       <CreationData
         className="first-step"
-        heading="5.'Download Resume Now!'"
+        heading="5.Download Resume"
         text="Arter creating, editing and customizing the layout of template you can download resume in PDF formet free of cost."
         img1={save1}
         img2={save2}

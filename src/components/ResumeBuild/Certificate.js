@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { FaRegLightbulb } from "react-icons/fa"; // Import the icon
 import "./Tips.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"; // Import CSS for the date picker
+import { format } from "date-fns"; // To format the date into dd-MM-yyyy
 import { motion, AnimatePresence } from "framer-motion";
 
-const CertificateForm = ({ formData, setFormData }) => {
+const CertificateForm = ({ formData, setFormData, errors, setErrors }) => {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [showTips, setShowTips] = useState(false); // State for managing tips visibility
 
@@ -19,6 +22,13 @@ const CertificateForm = ({ formData, setFormData }) => {
       i === index ? { ...item, [e.target.name]: e.target.value } : item
     );
     setFormData({ ...formData, certificate: newCertificates });
+    const { name } = e.target;
+    // Clear errors as user types
+    const newErrors = { ...errors };
+    if (newErrors.certificate && newErrors.certificate[index]) {
+      delete newErrors.certificate[index][name];
+      setErrors(newErrors);
+    }
   };
 
   const addCertificate = () => {
@@ -36,7 +46,13 @@ const CertificateForm = ({ formData, setFormData }) => {
       setCurrentFormIndex(index - 1);
     }
   };
-
+  const handleDateChange = (date, index) => {
+    const formattedDate = format(date, "dd-MM-yyyy"); // Format the date to dd-MM-yyyy
+    const newCertificates = formData.certificate.map((item, i) =>
+      i === index ? { ...item, IssueDate: formattedDate } : item
+    );
+    setFormData({ ...formData, certificate: newCertificates });
+  };
   const navigateForm = (index) => {
     setCurrentFormIndex(index);
   };
@@ -65,41 +81,26 @@ const CertificateForm = ({ formData, setFormData }) => {
               <h3>Certificate Tips:</h3>
               <ul>
                 <li>
-                  <strong>Certificate Name:</strong> Use the exact title as it
-                  appears on the document to reflect relevant skills or
-                  knowledge.
+                  <strong>Certificate Name:</strong> Use the exact title from the document to ensure accuracy and relevance.
+                  <br/><b> Example:</b> "Google Data Analytics Professional Certificate."
                 </li>
                 <li>
-                  <strong>Issuing Organization:</strong> Provide the full name
-                  of the issuing organization to add credibility and align with
-                  company standards.
+                  <strong>Issuing Organization:</strong> Provide the full name of the organization to establish credibility.
+                  <br/><b> Example:</b> "Coursera, offered by Google."
                 </li>
                 <li>
-                  <strong>Issuing Date:</strong> Include the month and year to
-                  indicate how current your qualifications are.
-                </li>
-                <li>
-                  <strong>URL:</strong> If applicable, provide a direct link to
-                  the certificate for easy verification.
+                  <strong>Issuing Date:</strong> Include the month and year to highlight the recency of your certification.
+                  <br/><b> Example:</b> "Issued: August 2023."
                 </li>
               </ul>
               <h3>Expert Guidance:</h3>
               <ul>
                 <li>
                   {" "}
-                  When listing certificates, focus on those that are directly
-                  relevant to the job you're applying for.
+                  Highlight certificates relevant to the job to emphasize applicable skills.
                 </li>
                 <li>
-                  Certificates that demonstrate skills or knowledge in
-                  high-demand areas can significantly enhance your
-                  attractiveness to potential employers.
-                </li>
-                <li>
-                  If you have multiple certificates, prioritize those that align
-                  with the job description and the company's goals. This shows
-                  that you're not only qualified but also strategically aligned
-                  with the company’s needs.
+                Prioritize certifications in high-demand areas to stand out to employers.
                 </li>
               </ul>
             </motion.div>
@@ -130,11 +131,20 @@ const CertificateForm = ({ formData, setFormData }) => {
       {formData.certificate.map((cert, index) =>
         currentFormIndex === index ? (
           <div key={index} className="AllForm-entry">
-            <div className="form-group-container">
+            <div className="form-group-container1">
               <div className="form-group">
-                <label htmlFor={`certificateName${index}`}>
-                  Certificate Name
-                </label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`certificateName${index}`}>
+                    Certificate Name
+                  </label>
+                  {errors.certificate &&
+                    errors.certificate[index]?.certificateName && (
+                      <span className="error-message">
+                        {errors.certificate[index].certificateName}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="certificateName"
@@ -142,39 +152,55 @@ const CertificateForm = ({ formData, setFormData }) => {
                   onChange={(e) => handleChange(e, index)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor={`IssuingOrg${index}`}>
-                  Issuing Organization
-                </label>
+              
+            </div>
+            <div className="form-group-container1"><div className="form-group">
+                <div className="label-container-resume-build">
+                  <label htmlFor={`IssuingOrg${index}`}>
+                    Issuing Org.
+                  </label>
+                  {errors.certificate &&
+                    errors.certificate[index]?.IssuingOrg && (
+                      <span className="error-message">
+                        {errors.certificate[index].IssuingOrg}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="IssuingOrg"
                   value={cert.IssuingOrg || ""}
                   onChange={(e) => handleChange(e, index)}
                 />
-              </div>
-            </div>
+              </div></div>
             <div className="form-group-container1">
               {" "}
               {/*Extra*/}
               <div className="form-group">
-                <label htmlFor={`IssueDate${index}`}>Issuing Date</label>
-                <input
-                  type="text"
-                  name="IssueDate"
-                  value={cert.IssueDate || ""}
-                  onChange={(e) => handleChange(e, index)}
+                <div className="label-container-resume-build">
+                  <label htmlFor={`IssueDate${index}`}>Issuing Date</label>
+                  {errors.certificate &&
+                    errors.certificate[index]?.IssueDate && (
+                      <span className="error-message">
+                        {errors.certificate[index].IssueDate}
+                      </span>
+                    )}
+                </div>
+                <DatePicker
+                  selected={
+                    cert.IssueDate
+                      ? new Date(cert.IssueDate.split("-").reverse().join("-"))
+                      : null
+                  } // Convert stored string to Date object
+                  onChange={(date) => handleDateChange(date, index)} // Call the handleDateChange function
+                  dateFormat="dd-MM-yyyy" // Format the date
+                  placeholderText="Select Issue Date"
+                  showIcon
+                  calendarIconClassName="calendar-icon"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor={`Cert_URL${index}`}>URL</label>
-                <input
-                  type="text"
-                  name="Cert_URL"
-                  value={cert.Cert_URL || ""}
-                  onChange={(e) => handleChange(e, index)}
-                />
-              </div>
+              
             </div>
             <p className="add-AllForm-text" onClick={addCertificate}>
               Add Another Certificate

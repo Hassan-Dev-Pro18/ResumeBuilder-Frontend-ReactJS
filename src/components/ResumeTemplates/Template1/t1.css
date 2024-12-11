@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     padding-top: 100px;
-    padding-bottom: 400px; /*Change*/
+    padding-bottom: 100px; /*Change*/
     color: #333;
     background-color: #e6e6e6;
     display: flex;
@@ -23,7 +23,7 @@
     box-shadow: 0 8px 10px rgba(0,0,0,0.1);
 }
 .t1_container:hover {
-    border-color: blue; /* Border color on hover */
+    border-color: #003135; /* Border color on hover */
   }
 p,li{
     text-align: justify;
@@ -42,7 +42,7 @@ ul {
     padding: 0;
 }
 
-.header {
+.t1-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,8 +50,8 @@ ul {
     padding-bottom: 20px;
 }
 
-.name-title h1 {
-    font-size: 36px;
+.t1-name-title .t1-h1 {
+    font-size: 30px;
     color: #004080;
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -64,84 +64,101 @@ ul {
     color: #b3b3b3;
 }
 
-.contact-info {
-    text-align: right;
+.t1-contact-info {
+    text-align: left;
     padding-top: 1px;
     font-size: 14px;
     line-height: 1.5;
-    margin-right: 25px;
+    margin-right: 40px;
 }
-.contact-info p{
+.t1-contact-info .t1-p{
     gap:2px;
 }
-.contact-info .icon{
+.t1-contact-info .t1-icon{
     padding-top: 3px;
 }
 
-.content {
+.t1-content {
     display: flex;
     margin-top: 20px;
 }
-
-.sidebar {
-    width: 30%;
+.image-t1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .t1-profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 20%; /* Makes the image circular */
+    /* Ensures the image covers the circle shape */
+    border: 2px solid #ddd; /* Optional: add a border */
+  }
+  
+.t1-sidebar {
+    width: 35%;
     padding-right: 20px;
     border-right: 2px solid #004080;
 }
 
-.sidebar .profile, .sidebar .skills,.sidebar .hobbies {
+.t1-sidebar .t1-profile, .t1-sidebar .t1-skills,.t1-sidebar .t1-hobbies {
     margin-bottom: 20px;
     margin-left: 10px;
 }
-.projects ul,.skills ul,.hobbies ul{
+.projects ul,.skills .t1-ul,.hobbies .t1-ul{
     list-style-type:disc;
     margin-left: 20px;
 }
 
-.sidebar h3 {
+.t1-sidebar .t1-sidebar-h3 {
     font-size: 18px;
     color: #004080;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.sidebar p, .sidebar ul {
+.t1-sidebar p, .t1-sidebar .t1-ul {
     font-size: 14px;
     line-height: 1.6;
 }
 
-.main-content {
+.t1-main-content {
     width: 70%;
     padding-left: 20px;
 }
 
-.main-content .objective, .main-content .experience, .main-content .education, .main-content .projects {
+.t1-main-content .objective, .t1-main-content .t1-experience, .t1-main-content .t1-education, .t1-main-content .t1-projects {
     margin-bottom: 20px;
 }
 
-.main-content h3 {
+.t1-main-content h3 {
     font-size: 18px;
     color: #004080;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 
-.main-content p, .main-content ul, .main-content li {
+.t1-main-content .t1-main-p, .t1-main-content .t1-main-ul, .t1-main-content .t1-main-li {
     font-size: 14px;
     line-height: 1.6;
     justify-items: baseline;
+    list-style: disc;
 }
-
-.job {
+.t1-main-content .t1-main-ul{
+    margin-left: 1rem;
+}
+.t1-job {
     margin-bottom: 10px;
 }
 
-.job p {
+.t1-job .t1-job-p {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.job ul {
+.t1-job .t1-job-ul {
     margin-left: 20px;
     list-style-type: disc;
 }
@@ -155,28 +172,36 @@ ul {
     transition: color 0.3s ease;
   }
   .t1_container:hover .edit-icon {
-    color: blue; /* Icon color on hover */
+    color: #003135; /* Icon color on hover */
   }
   .button-containers {
     display: flex;
     justify-content: space-around;
     width: 100%;
     transition: opacity 0.3s ease-in-out;
-    position: absolute;
-    bottom: -800px; /* Positioned below the resume */
+    position: relative;
+    bottom: -100px; /* Positioned below the resume */
     padding-bottom: 20px;
   }
   
   .download-btn {
-    background-color: #007bff;
+    background-color: #003135;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 8px;
+    font-size: 0.96rem;
+    font-weight: 500;
+    border-radius: 15px;
+    border: 2px solid #003135;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    display: inline-block;
   }
   .download-btn:hover {
-    background-color: #0056b3;
+    border: 2px solid #003135;
+    background-color: #fff;
+    color: #003135;
+    transform: scale(1);
   }
  /* Mobile Styles at 350px */
 @media (max-width: 350px) {

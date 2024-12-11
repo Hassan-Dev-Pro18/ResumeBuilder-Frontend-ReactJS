@@ -41,7 +41,7 @@ class Navbar extends Component {
     return (
       <nav className="NavbarItems">
         
-        <h1 className="navbar-logo">Resumeify.</h1>
+        <h1 className="navbar-logo">Resume Builder</h1>
         <div className="menu-icon" onClick={this.handleClick}>
         <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>
@@ -88,10 +88,7 @@ class Navbar extends Component {
                     <button onClick={this.handleLogout} className="sign-out">
                       <i className="fas fa-sign-out-alt"></i> Sign out
                     </button>
-                    <div className="privacy-links">
-                      <Link to="/privacy-policy">Privacy Policy</Link> &bull;
-                      <Link to="/terms-of-service">Terms of Service</Link>
-                    </div>
+                    
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -109,55 +106,5 @@ class Navbar extends Component {
     );
   }
 }
-// class Navbar extends Component {
-//   state = {clicked: false};
-//   handleClick = () =>{
-//     this.setState({clicked:
-//     !this.state.clicked})
-//   }
-//   render(){
-//   return (
-//     <>
-//       <nav>
-//         <a href="index.html">
-          
-//         </a>
 
-//         <div>
-//           <ul id="navbar" className={this.state.clicked ? "#nmavbar active" : "#navbar"}>
-//             <li>
-//               <a className="active" href="index.html">
-//                 Home
-//               </a>
-//             </li>
-//             <li>
-//               <a href="index.html">Template</a>
-//             </li>
-//             <li>
-//               <a href="index.html">Resume</a>
-//             </li>
-//             <li>
-//               <a href="index.html">Blog</a>
-//             </li>
-//             <li>
-//               <a href="index.html">About</a>
-//             </li>
-//             <li>
-//               <a href="index.html">Contact</a>
-//             </li>
-//           </ul>
-//         </div>
-
-//         <div id="mobile" onClick={this.handleClick}>
-//           <i id="bar" className={
-//             this.state.clicked?
-//             "fas fa-times" :
-//             "fas fa-bars"
-//           }></i>
-//         </div>
-//       </nav>
-//     </>
-//   );
-// }
-// }
 export default Navbar;

@@ -32,11 +32,11 @@ const TermsAndConditions = () => {
         <strong>Last updated: September 9,2024</strong>
       </motion.p>
       <motion.p variants={itemVariants} className="terms-p">
-        Welcome to Resumeify, your trusted partner in crafting professional
+        Welcome to Resume Builder, your trusted partner in crafting professional
         resumes. Your privacy is of utmost importance to us, and we are
         committed to protecting your personal information. This Privacy Policy
         explains how we collect, use, and safeguard your data when you use our
-        services. By using Resumeify, you agree to the collection and use of
+        services. By using Resume Builder, you agree to the collection and use of
         information in accordance with this policy. We only collect personal
         data that is necessary for providing and improving our services to you.
         Our goal is to be transparent about our practices and ensure you have
@@ -46,34 +46,34 @@ const TermsAndConditions = () => {
       <motion.div variants={itemVariants} className="terms-section">
         <h2>1. Acceptance of Terms</h2>
         <p>
-          By accessing and using Resumify, you agree to comply with and be bound
+          By accessing and using Resume Builder, you agree to comply with and be bound
           by the following terms and conditions. If you disagree with any part
-          of these terms, you should not use our website. By using Resumify, you
+          of these terms, you should not use our website. By using Resume Builder, you
           acknowledge that you have read, understood, and agreed to these terms.
           These terms may be updated from time to time, and it is your
           responsibility to review them periodically. Continued use of our
           services after any changes constitutes acceptance of those changes. We
           are committed to protecting your privacy and personal information.
           Please review our to understand how we collect, use, and protect your
-          data. Your use of Resumify signifies your acceptance of our privacy
+          data. Your use of Resume Builder signifies your acceptance of our privacy
           practices as outlined in our Privacy Policy.
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="terms-section">
         <h2>2. License to Use</h2>
         <p>
-          Resumify grants you a limited, non-exclusive, non-transferable, and
+          Resume Builder grants you a limited, non-exclusive, non-transferable, and
           revocable license to use our resume builder tool. You must not:
         </p>
         <ul className="terms-ul">
           <li className="terms-li">
             Republish, distribute, or share any content or materials obtained
-            from Resumify in any form or through any medium, whether
+            from Resume Builder in any form or through any medium, whether
             electronically or otherwise, without prior written consent from
-            Resumify.
+            Resume Builder.
           </li>
           <li className="terms-li">
-            Use the Resumify tool to create or distribute any content that is
+            Use the Resume Builder tool to create or distribute any content that is
             illegal, defamatory, obscene, or otherwise objectionable or violates
             any third-party rights.
           </li>
@@ -98,7 +98,7 @@ const TermsAndConditions = () => {
             our services.
           </li>
           <li className="terms-li">
-            Notifying Resumify immediately if you become aware of any
+            Notifying Resume Builder immediately if you become aware of any
             unauthorized use of your account or any other breach of security.
             You should contact us at <a className = "terms-a"href="/contact-us">our contact page</a>{" "}
             to report any suspicious activity or security concerns.
@@ -116,7 +116,7 @@ const TermsAndConditions = () => {
           </li>
         </ul>
         <p>
-          Resumify will not be liable for any loss or damage arising from your
+          Resume Builder will not be liable for any loss or damage arising from your
           failure to protect your account details or from unauthorized access to
           your account. We reserve the right to suspend or terminate your
           account if we suspect any misuse or breach of our terms.
@@ -125,24 +125,24 @@ const TermsAndConditions = () => {
       <motion.div variants={itemVariants} className="terms-section">
         <h2>4. Intellectual Property</h2>
         <p>
-          The content and design of the Resumify website and resume templates
-          are owned by Resumify. You are not permitted to use any content or
+          The content and design of the Resume Builder website and resume templates
+          are owned by Resume Builder. You are not permitted to use any content or
           design without prior written consent. Any unauthorized use,
-          reproduction, distribution, modification, or display of Resumify’s
+          reproduction, distribution, modification, or display of Resume Builder
           content and designs is strictly prohibited. This includes using any
           part of the content for commercial purposes, creating derivative works
           based on our materials, or incorporating any of our content into other
           products or services without obtaining prior written consent from
-          Resumify. You acknowledge that any breach of these intellectual
+          Resume Builder. You acknowledge that any breach of these intellectual
           property terms may result in legal action and the termination of your
-          access to our services. Resumify reserves the right to enforce its
+          access to our services. Resume Builder reserves the right to enforce its
           intellectual property rights to the fullest extent permitted by law.
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="terms-section">
         <h2>5. Limitation of Liability</h2>
         <p>
-          Resumify will not be liable for any loss or damage arising from your
+          Resume Builder will not be liable for any loss or damage arising from your
           use of the site. This includes, but is not limited to:
         </p>
         <ul className="terms-ul">
@@ -176,11 +176,11 @@ const TermsAndConditions = () => {
         <h2>6. Termination</h2>
         <p>
           We reserve the right to terminate or suspend your access to the
-          Resumify website and services at our sole discretion, with or without
+          Resume Builder website and services at our sole discretion, with or without
           cause, if you violate any of these terms and conditions. This
           includes, but is not limited to, breaches of the terms of use,
           unauthorized use of the site, or any other conduct that we, in our
-          sole judgment, deem inappropriate or harmful to Resumify or its users.
+          sole judgment, deem inappropriate or harmful to Resume Builder or its users.
           If we determine that you have violated our terms, we may take
           appropriate actions to address the violation, including but not
           limited to suspending or permanently terminating your account,
@@ -197,14 +197,14 @@ const TermsAndConditions = () => {
       <motion.div variants={itemVariants} className="terms-section">
         <h2>7. Changes to Terms</h2>
         <p>
-          Resumify reserves the right to modify these terms and conditions at
+          Resume Builder reserves the right to modify these terms and conditions at
           any time. It is important for you to be aware of the following:
         </p>
         <ul className="terms-ul">
           <li className="terms-li">
             We may update or change the terms to reflect new services, features,
             or legal requirements, or for other reasons as deemed necessary by
-            Resumify.
+            Resume Builder.
           </li>
           <li className="terms-li">
             It is your responsibility to review the terms regularly to stay
@@ -230,14 +230,14 @@ const TermsAndConditions = () => {
         <ul className="terms-ul">
           <li className="terms-li">
             The laws of Pakistan will govern any disputes or claims arising from
-            or related to your use of the Resumify website and services. This
+            or related to your use of the Resume Builder website and services. This
             includes, but is not limited to, issues related to the
             interpretation of these terms, the legality of your use, and any
             other legal matters.
           </li>
           <li className="terms-li">
             All terms and conditions, including any policies referenced herein,
-            constitute the entire agreement between you and Resumify regarding
+            constitute the entire agreement between you and Resume Builder regarding
             your use of the site and supersede all prior agreements and
             understandings, whether written or oral, related to the subject
             matter.

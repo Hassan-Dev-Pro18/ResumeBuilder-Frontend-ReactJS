@@ -1,0 +1,117 @@
+.resume-t4 {
+    display: flex;
+    max-width: 900px;
+    margin:auto;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Sidebar Section */
+.t4-sidebar {
+    width: 35%;
+    background-color: #4a4a4a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.t4-profile-picture .t4-img{
+    width: 110px;
+    height: 110px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    margin-bottom: -6rem;
+    position: relative;
+    top: 25px;
+}
+
+.t4-sidebar .t4-left-data {
+    padding-top: 8rem;
+    width: 100%;
+}
+
+.t4-sidebar .t4-section .t4-sidebar-h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: #3d3d3d;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+}
+
+.t4-sidebar .t4-section .t4-sidebar-p, 
+.t4-sidebar .t4-section .t4-sidebar-ul {
+    font-size: 0.87em;
+    line-height: 1.6em;
+    padding: 0 10px;
+    
+}
+
+
+
+.t4-sidebar .contact .t4-sidebar-skill-ul {
+    list-style: disc;
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.t4-sidebar .contact .t4-sidebar-skill-ul .t4-sidebar-skill-li {
+    margin: 8px 0;
+}
+
+/* Main Content Section */
+.main-content-t4 {
+    width: 70%;
+    padding: 30px;
+}
+
+.main-content-t4 .header-t4 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.main-content-t4 .header-t4 .t4-header-h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #333;
+}
+
+.main-content-t4 .t4-section {
+    margin-bottom: 20px;
+}
+
+.main-content-t4 .t4-section .t4-section-h2 {
+    font-size: 1.4em;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #ddd;
+}
+
+.main-content-t4 .t4-section .t4-section-h3 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    color: #333;
+}
+
+.main-content-t4 .t4-section .t4-section-p {
+    font-size: 0.85em;
+    line-height: 1.2em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Additional Decorative Elements */
+.t4-sidebar .about-me, 
+.t4-sidebar .skills, 
+.t4-sidebar .contact {
+    position: relative;
+    padding: 10px 0;
+}
+

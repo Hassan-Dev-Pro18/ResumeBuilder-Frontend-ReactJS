@@ -4,8 +4,9 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./AnalysisContent.css";
 import Loading from "../ResumeBuild/Loading";
-import { FaPlus, FaMinus,FaPencilAlt ,FaStar } from "react-icons/fa";
-import { Circles } from "react-loader-spinner"; // Install react-loader-spinner for a loading spinner
+import { FaPlus, FaMinus } from "react-icons/fa";
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AnalysisContent = () => {
   const [file, setFile] = useState(null);
@@ -51,6 +52,7 @@ const AnalysisContent = () => {
       setError("");
     } catch (err) {
       setError("Error uploading the file.");
+      toast.error("Error uploading the file. Please try again.")
       console.error(err);
     } finally {
       setLoading(false); // End loading
@@ -250,9 +252,10 @@ const AnalysisContent = () => {
   
 
   return (
+    
     <div className="mainBody">
       <div className="upper-head-about">
-        <h1>Smart Analyzer | Resumify</h1>
+        <h1>Smart Analyzer | Resume Builder</h1>
         <p>
           Firstly upload your resume and our resume analyzer can review your
           resume and suggest/recommend you skills, courses, networks, and much
@@ -267,6 +270,7 @@ const AnalysisContent = () => {
             type="file"
             id="file-upload"
             onChange={handleFileChange}
+            accept="application/pdf"
             className="file-upload-input"
           />
           <i className="fas fa-file-upload"></i>
@@ -276,7 +280,9 @@ const AnalysisContent = () => {
         <button type="submit" className="upload-button">
           <i className="fas fa-cloud-upload-alt"></i> Upload
         </button>
+        
       </form>
+      <ToastContainer />
       {selectedFileName && <div className="file-name">{selectedFileName}</div>}
       {error && <p className="error">{error}</p>}
       {loading && (
@@ -287,10 +293,10 @@ const AnalysisContent = () => {
       {response && (
         <div className="results">
           <h1 className="report-main-heading">Analysis Report</h1>
-          <h2 className="each-section-heading">Personal Information<FaPencilAlt className="iconAnalysis" /></h2>
+          <h2 className="each-section-heading">Personal Information</h2>
           <section className="analysis-section">
             <div className="data-show-below-each-section p-info">
-              <p>
+              {/* <p>
                 <strong>Name:</strong> {response.name}
               </p>
               <p>
@@ -298,7 +304,7 @@ const AnalysisContent = () => {
               </p>
               <p>
                 <strong>Mobile Number:</strong> {response.mobile_number}
-              </p>
+              </p> */}
               <p>
                 <strong>Number of Pages:</strong> {response.no_of_pages}
               </p>

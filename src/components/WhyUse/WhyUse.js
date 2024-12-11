@@ -38,7 +38,7 @@ const WhyUse = () => {
 
           <div data-aos="fade-up" data-aos-duration="1000" className="singleItem">
             <img src={img3} alt="Image Name" />
-            <h5>Edit Your Resume in Real Time</h5>
+            <h5>Edit Your Resume</h5>
             <p>
               As you edit your resume with our builder, you’ll immediately see
               the changes applied to your document.

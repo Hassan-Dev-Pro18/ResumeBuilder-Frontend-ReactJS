@@ -6,7 +6,7 @@
 }
 /* upload resume section */
 .upload-title{
-    font-size: 2rem;
+    font-size: 1.8rem;
     justify-content: center;
     margin-top: 2rem;
     color: #003140;
@@ -59,6 +59,7 @@
   
   .file-upload-label:hover {
     background-color: #0c5268;
+    border-color: #0c5268;
   }
   
   .upload-button {
@@ -202,17 +203,17 @@ table {
   }
   
 .download-report-btn{
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #003140;
+  padding: 10px;
+  border: 2px solid #003135;
+  border-radius: 15px;
+  background-color: #003135;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .download-report-btn:hover{
-  border: 2px solid #003140;
+  border: 2px solid #003135;
 }
 /* Responsive Code */
 @media (max-width: 900px){

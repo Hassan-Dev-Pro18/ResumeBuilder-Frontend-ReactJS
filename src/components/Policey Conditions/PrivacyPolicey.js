@@ -11,11 +11,11 @@ const PrivacyPolicy = () => {
 
       <section className="privacy-section">
         <p className="privacy-p">
-          Welcome to Resumeify, your trusted partner in crafting professional
+          Welcome to Resume Builder, your trusted partner in crafting professional
           resumes. Your privacy is of utmost importance to us, and we are
           committed to protecting your personal information. This Privacy Policy
           explains how we collect, use, and safeguard your data when you use our
-          services. By using Resumeify, you agree to the collection and use of
+          services. By using Resume Builder, you agree to the collection and use of
           information in accordance with this policy. We only collect personal
           data that is necessary for providing and improving our services to
           you. Our goal is to be transparent about our practices and ensure you
@@ -169,7 +169,7 @@ const PrivacyPolicy = () => {
         <ul className="list-ul">
           <li className="list-li">
             If you have any questions about this Privacy Policy, please contact
-            us at resumeify@gmail.com.
+            us at ResumeBuilder@gmail.com.
           </li>
           <li className="list-li">
             If you cannot contect us through mail, you can approch us through

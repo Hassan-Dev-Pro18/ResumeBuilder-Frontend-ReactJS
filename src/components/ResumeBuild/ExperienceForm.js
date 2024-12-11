@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FaRegLightbulb } from "react-icons/fa"; // Import the icon
 import "./Tips.css";
 import { motion, AnimatePresence } from "framer-motion";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const ExperienceForm = ({ formData, setFormData }) => {
+const ExperienceForm = ({ formData, setFormData, errors, setErrors }) => {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [showTips, setShowTips] = useState(false); // State for managing tips visibility
 
@@ -19,11 +21,19 @@ const ExperienceForm = ({ formData, setFormData }) => {
       i === index ? { ...item, [e.target.name]: e.target.value } : item
     );
     setFormData({ ...formData, experience: newExperience });
+    const { name } = e.target;
+    // Clear errors as user types
+    const newErrors = { ...errors };
+    if (newErrors.experience && newErrors.experience[index]) {
+      delete newErrors.experience[index][name];
+      setErrors(newErrors);
+    }
   };
 
-  const handleDateChange = (date, name, index) => {
+  const handleYearChange = (date, name, index) => {
+    const year = date.getFullYear().toString(); // Convert year to string
     const newExperience = formData.experience.map((item, i) =>
-      i === index ? { ...item, [name]: date } : item
+      i === index ? { ...item, [name]: year } : item
     );
     setFormData({ ...formData, experience: newExperience });
   };
@@ -70,36 +80,38 @@ const ExperienceForm = ({ formData, setFormData }) => {
             >
               <h3>Expert Guidance and Tips:</h3>
               <ul>
-                  <li>
-                    <strong>Job Title:</strong> Clearly state your job title.
-                    This ensures that recruiters can quickly identify your role
-                    and responsibilities in previous positions, which helps in
-                    assessing your suitability for the role you're applying for.
-                  </li>
-                  <li>
-                    <strong>Company Name:</strong> Include the full name of the
-                    company. Mentioning reputable or well-known companies adds
-                    credibility to your work history and helps interviewers
-                    recognize your experience with established organizations.
-                  </li>
-                  <li>
-                    <strong>Start Year:</strong> Specify the year you began your
-                    position. This provides a clear timeline of your employment
-                    history and allows interviewers to understand your career
-                    progression and stability.
-                  </li>
-                  <li>
-                    <strong>End Year:</strong> Indicate the year you ended the
-                    position. This helps interviewers gauge the duration of your
-                    employment and understand your career development.
-                  </li>
-                  <li>
-                    <strong>Responsibilities:</strong> Describe your key
-                    responsibilities and achievements in the role. Highlighting
-                    specific contributions and skills relevant to the job you're
-                    applying for demonstrates your value and expertise.
-                  </li>
-    
+                <li>
+                  <strong>Job Title:</strong> Clearly state your position to
+                  highlight your role and responsibilities. Use
+                  industry-standard titles to ensure clarity and alignment with
+                  the job you're applying for.
+                  <b> Example:</b> "Software Engineer"
+                </li>
+                <li>
+                  <strong>Company Name:</strong> Use the full name of the
+                  company to establish credibility. Including well-known or
+                  reputable company names can enhance your professional image.{" "}
+                  
+                  <b> Example:</b> "Google LLC"
+                </li>
+                <li>
+                  <strong>Start Year:</strong> Provide the year you began to
+                  outline your career <timeline className=""></timeline>
+                  <br />
+                  <b> Example:</b> "Start Year: 2019"
+                </li>
+                <li>
+                  <strong>End Year:</strong> Mention the year you left or
+                  indicate "Present" if ongoing.
+                  <br />
+                  <b> Example:</b> "End Year: 2023"
+                </li>
+                <li>
+                  <strong>Responsibilities:</strong> Summarize key
+                  responsibilities and achievements relevant to the job. Tailor
+                  this section to align with the job you’re targeting.<br />
+                  <b> Example:</b> "Led the development of scalable web applications, improving user engagement by 30%."
+                </li>
               </ul>
             </motion.div>
           )}
@@ -131,7 +143,15 @@ const ExperienceForm = ({ formData, setFormData }) => {
           <div key={index} className="AllForm-entry">
             <div className="form-group-container">
               <div className="form-group">
-                <label htmlFor={`JobTitle${index}`}>Job Title</label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`JobTitle${index}`}>Job Title</label>
+                  {errors.experience && errors.experience[index]?.JobTitle && (
+                    <span className="error-message">
+                      {errors.experience[index].JobTitle}
+                    </span>
+                  )}
+                </div>
+
                 <input
                   type="text"
                   name="JobTitle"
@@ -140,7 +160,16 @@ const ExperienceForm = ({ formData, setFormData }) => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor={`CompanyName${index}`}>Company Name</label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`CompanyName${index}`}>Company Name</label>
+                  {errors.experience &&
+                    errors.experience[index]?.CompanyName && (
+                      <span className="error-message">
+                        {errors.experience[index].CompanyName}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="CompanyName"
@@ -151,41 +180,61 @@ const ExperienceForm = ({ formData, setFormData }) => {
             </div>
             <div className="form-group-container">
               <div className="form-group">
-                <label htmlFor={`StartYear${index}`}>Start Year</label>
-                {/* <DatePicker
-                  selected={exp.StartYear}
+                <div className="label-container-resume-build">
+                  <label htmlFor={`StartYear${index}`}>Start Year</label>
+                  {errors.experience && errors.experience[index]?.StartYear && (
+                    <span className="error-message">
+                      {errors.experience[index].StartYear}
+                    </span>
+                  )}
+                </div>
+
+                <DatePicker
+                  selected={exp.StartYear ? new Date(exp.StartYear, 0) : null}
                   onChange={(date) =>
-                    handleDateChange(date, "StartYear", index)
+                    handleYearChange(date, "StartYear", index)
                   }
                   showYearPicker
                   dateFormat="yyyy"
-                  yearItemNumber={9}
                   placeholderText="Select Start Year"
-                /> */}
-                <input
-                  type="text"
-                  name="StartYear"
-                  value={exp.StartYear || ""}
-                  onChange={(e) => handleChange(e, index)}
-                  maxLength={4}
+                  showIcon
+                  calendarIconClassName="calendar-icon"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor={`EndYear${index}`}>End Year</label>
-                <input
-                  type="text"
-                  name="EndYear"
-                  value={exp.EndYear || ""}
-                  onChange={(e) => handleChange(e, index)}
-                  maxLength={4}
+                <div className="label-container-resume-build">
+                  <label htmlFor={`EndYear${index}`}>End Year</label>
+                  {errors.experience && errors.experience[index]?.EndYear && (
+                    <span className="error-message">
+                      {errors.experience[index].EndYear}
+                    </span>
+                  )}
+                </div>
+                <DatePicker
+                  selected={exp.EndYear ? new Date(exp.EndYear, 0) : null}
+                  onChange={(date) => handleYearChange(date, "EndYear", index)}
+                  showYearPicker
+                  dateFormat="yyyy"
+                  placeholderText="Select End Year"
+                  showIcon
+                  calendarIconClassName="calendar-icon"
                 />
               </div>
             </div>
-            <div className="form-group-container">
+            <div className="form-group-container1">
               <div className="form-group">
-                <label htmlFor={`Responsibilties${index}`}>
-                  Responsibilties
-                </label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`Responsibilties${index}`}>
+                    Responsibilties
+                  </label>
+                  {errors.experience &&
+                    errors.experience[index]?.Responsibilties && (
+                      <span className="error-message">
+                        {errors.experience[index].Responsibilties}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="Responsibilties"

@@ -1,13 +1,14 @@
 .show1 {
     text-decoration: none;
-    padding: 0.4rem 2rem;
+    padding: 0.4rem 0.5rem;
     justify-content: center;
-    border-radius: 100px;
-    font-size: 1.1rem;
+    border-radius: 15px;
+    font-size: 0.96rem;
     font-weight: bold;
     letter-spacing: 2px;
     border: 2px solid #003135;
     background-color: #003135;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
     color: #fff;
 }
 
@@ -19,13 +20,13 @@
 .popular {
     .secContainer {
         .title {
-            color: black;
+            color: #000;
             line-height: 1.5rem;
             padding-bottom: 0.5rem;
             padding-top: 2rem;
             padding-left: 2rem;
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 800;
         }
         
@@ -51,15 +52,17 @@
 
                 h5 {
                     font-weight: 700;
-                    font-size: 1.18rem;
+                    font-size: 1.23rem;
                     color: #000;
                     padding: 0.5rem;
                 }
 
                 p {
-                    font-size: 13px;
+                    font-size: 0.85rem;
                     font-weight: 500;
                     padding-bottom: 1rem;
+                    padding-left: 1.8rem;
+                    padding-right: 1.8rem;
                     color: #000;
                     text-align: center;
                 }

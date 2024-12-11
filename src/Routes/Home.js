@@ -3,7 +3,6 @@ import Hero from "../components/Hero/Hero";
 import WhyUse from "../components/WhyUse/WhyUse";
 import HowCreate from "../components/HowCreate/HowCreate"
 import Footer from "../components/Footer/footer";
-import HeroSection from "../components/H1/H1";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

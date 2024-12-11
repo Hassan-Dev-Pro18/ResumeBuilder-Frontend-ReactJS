@@ -9,10 +9,10 @@ function ProtectedRoute(props) {
     useEffect(()=>{
         let login = localStorage.getItem('token')
         if(!login){
-            navigate('/login')
+          navigate('/login', { replace: true });
         }
         
-      });
+      }, [navigate]);
     
   return (
     <>
@@ -22,3 +22,4 @@ function ProtectedRoute(props) {
 }
 
 export default ProtectedRoute;
+

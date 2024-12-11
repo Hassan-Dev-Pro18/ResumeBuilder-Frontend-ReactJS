@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FaRegLightbulb } from "react-icons/fa"; // Import the icon
+import { FaRegLightbulb} from "react-icons/fa"; // Import the icon
 import "./Tips.css";
 import { motion, AnimatePresence } from "framer-motion";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const EducationForm = ({ formData, setFormData }) => {
+const EducationForm = ({ formData, setFormData, errors, setErrors }) => {
+  
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [showTips, setShowTips] = useState(false); // State for managing tips visibility
 
@@ -20,11 +22,20 @@ const EducationForm = ({ formData, setFormData }) => {
       i === index ? { ...item, [e.target.name]: e.target.value } : item
     );
     setFormData({ ...formData, education: newEducation });
+
+    const { name } = e.target;
+    // Clear errors as user types
+    const newErrors = { ...errors };
+    if (newErrors.education && newErrors.education[index]) {
+      delete newErrors.education[index][name];
+      setErrors(newErrors);
+    }
   };
 
-  const handleDateChange = (date, name, index) => {
+  const handleYearChange = (date, name, index) => {
+    const year = date.getFullYear().toString(); // Convert year to string
     const newEducation = formData.education.map((item, i) =>
-      i === index ? { ...item, [name]: date } : item
+      i === index ? { ...item, [name]: year } : item
     );
     setFormData({ ...formData, education: newEducation });
   };
@@ -69,35 +80,23 @@ const EducationForm = ({ formData, setFormData }) => {
               variants={tipAnimation}
               transition={{ duration: 0.3 }}
             >
-              <h3>Expert Guidance and Tips:</h3>
+              <h3>Expert Guidance:</h3>
               <ul>
                 <li>
-                  <strong>Institute Name:</strong> Mention the full name of the
-                  institute. Employers often prioritize candidates from
-                  recognized and reputable institutions, so this can strengthen
-                  your application.
+                  <strong>Institute Name:</strong> Use the full name of the institution to establish credibility.
+                  <b> Example:</b> "Massachusetts Institute of Technology (MIT)" instead of "MIT."
                 </li>
                 <li>
-                  <strong>Degree:</strong> Clearly state the degree you earned.
-                  Employers look for degrees that align with the job
-                  requirements and reflect relevant knowledge or specialization.
+                  <strong>Degree:</strong> Clearly state the degree earned, showcasing its relevance to the job.
+                  <b> Example:</b> "Bachelor of Science in Computer Science" rather than "B.Sc. in CS."
                 </li>
                 <li>
-                  <strong>Start Year:</strong> Include the year you started the
-                  degree. This provides context for your educational timeline
-                  and helps interviewers assess your academic progression.
+                  <strong>Start Year:</strong> Provide the year you began your program to outline your academic timeline.
+                  <br/><b> Example:</b> "Start Year: 2018"
                 </li>
                 <li>
-                  <strong>End Year:</strong> Specify the year you completed or
-                  expect to complete the degree. Employers value up-to-date
-                  qualifications, so ensuring the timeline is clear is
-                  important.
-                </li>
-                <li>
-                  <strong>CGPA/Grades:</strong> Include your final CGPA or
-                  grades if they are strong. High academic performance can be a
-                  differentiator, especially for recent graduates or entry-level
-                  positions.
+                  <strong>End Year:</strong> Specify when you completed or plan to complete your degree to reflect recency.
+                  <br/><b> Example:</b> "End Year: 2022 (Expected)"
                 </li>
               </ul>
             </motion.div>
@@ -128,9 +127,20 @@ const EducationForm = ({ formData, setFormData }) => {
       {formData.education.map((edu, index) =>
         currentFormIndex === index ? (
           <div key={index} className="AllForm-entry">
-            <div className="form-group-container">
+            <div className="form-group-container1">
               <div className="form-group">
-                <label htmlFor={`InstituteName${index}`}>Institute Name</label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`InstituteName${index}`}>
+                    Institute Name
+                  </label>
+                  {errors.education &&
+                    errors.education[index]?.InstituteName && (
+                      <span className="error-message">
+                        {errors.education[index].InstituteName}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="InstituteName"
@@ -138,8 +148,19 @@ const EducationForm = ({ formData, setFormData }) => {
                   onChange={(e) => handleChange(e, index)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor={`Degree${index}`}>Degree</label>
+              
+            </div>
+            <div className="form-group-container1">
+            <div className="form-group">
+                <div className="label-container-resume-build">
+                  <label htmlFor={`Degree${index}`}>Degree</label>
+                  {errors.education && errors.education[index]?.Degree && (
+                    <span className="error-message">
+                      {errors.education[index].Degree}
+                    </span>
+                  )}
+                </div>
+
                 <input
                   type="text"
                   name="Degree"
@@ -150,48 +171,52 @@ const EducationForm = ({ formData, setFormData }) => {
             </div>
             <div className="form-group-container">
               <div className="form-group">
-                <label htmlFor={`StartYear${index}`}>Start Year</label>
-                {/* <DatePicker
-                  selected={edu.StartYear}
-                  onChange={(date) =>
-                    handleDateChange(date, "StartYear", index)
-                  }
-                  showYearPicker
-                  dateFormat="yyyy"
-                  yearItemNumber={9}
-                  placeholderText="Select Start Year"
-                /> */}
-                <input
-                  type="text"
-                  name="StartYear"
-                  value={edu.StartYear || ""}
-                  onChange={(e) => handleChange(e, index)}
-                  maxLength={4}
-                  placeholder="Enter Start Year"
-                />
+                <div className="label-container-resume-build">
+                  <label htmlFor={`StartYear${index}`}>Start Year</label>
+                  {errors.education && errors.education[index]?.StartYear && (
+                    <span className="error-message">
+                      {errors.education[index].StartYear}
+                    </span>
+                  )}
+                </div>
+                  <DatePicker
+                    selected={edu.StartYear ? new Date(edu.StartYear, 0) : null}
+                    onChange={(date) =>
+                      handleYearChange(date, "StartYear", index)
+                    }
+                    showYearPicker
+                    dateFormat="yyyy"
+                    placeholderText="Select Start Year"
+                    showIcon
+                    calendarIconClassName="calendar-icon"
+                  />
               </div>
               <div className="form-group">
-                <label htmlFor={`PassOutYear${index}`}>End Year</label>
-                <input
-                  type="text"
-                  name="PassOutYear"
-                  value={edu.PassOutYear || ""}
-                  onChange={(e) => handleChange(e, index)}
-                  maxLength={4}
-                  placeholder="Enter PassOut Year"
-                />
+                <div className="label-container-resume-build">
+                  <label htmlFor={`PassOutYear${index}`}>End Year</label>
+                  {errors.education && errors.education[index]?.PassOutYear && (
+                    <span className="error-message">
+                      {errors.education[index].PassOutYear}
+                    </span>
+                  )}
+                </div>
+                  <DatePicker
+                    selected={
+                      edu.PassOutYear ? new Date(edu.PassOutYear, 0) : null
+                    }
+                    onChange={(date) =>
+                      handleYearChange(date, "PassOutYear", index)
+                    }
+                    showYearPicker
+                    dateFormat="yyyy"
+                    placeholderText="Select End Year"
+                    showIcon
+                    calendarIconClassName="calendar-icon"
+                  />
               </div>
             </div>
-            <div className="form-group-container">
-              <div className="form-group">
-                <label htmlFor={`CGPA${index}`}>CGPA/Grades</label>
-                <input
-                  type="text"
-                  name="CGPA"
-                  value={edu.CGPA || ""}
-                  onChange={(e) => handleChange(e, index)}
-                />
-              </div>
+            <div className="form-group-container1">
+              
             </div>
             <p className="add-AllForm-text" onClick={addEducation}>
               Add Another Education

@@ -3,6 +3,8 @@ import axios from "axios";
 import "./AdminPage.css";
 import { FaSearch, FaFilter } from "react-icons/fa";
 import Navbar1 from "../Navbar/Navbar1";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -35,6 +37,7 @@ const UserManagement = () => {
         `http://localhost:4000/new-users/updateUser/${userId}`,
         { role: newRole }
       );
+      toast.success("Role Updated successfully!");
       setUsers(
         users.map((user) =>
           user.id === userId ? { ...user, role: newRole } : user
@@ -51,6 +54,7 @@ const UserManagement = () => {
       await axios.delete(`http://localhost:4000/new-users/${userId}`);
       setUsers(users.filter((user) => user.id !== userId));
       await fetchUsers();
+      toast.success("User Deleted successfully!");
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -102,7 +106,6 @@ const UserManagement = () => {
               <th>LastName</th>
               <th>Email</th>
               <th>Role</th>
-              <th>Username</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -121,7 +124,7 @@ const UserManagement = () => {
                     <option value="user">User</option>
                   </select>
                 </td>
-                <td>{user.username}</td>
+                
 
                 <td>
                   <button
@@ -137,6 +140,7 @@ const UserManagement = () => {
         </table>
       </div>
       )}
+      <ToastContainer />
     </div>
     </div>
   );

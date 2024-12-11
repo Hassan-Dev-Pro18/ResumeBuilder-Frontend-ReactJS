@@ -25,10 +25,11 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/template' element={<Template/>}/>
-        <Route path='/analysis' element={<Analysis/>}/>
+        {/* <Route path='/template' element={<Template/>}/> */}
+        <Route path='/template' element={<ProtectedRoute Component = {Template}/>}/>
+        {/* {<Route path='/analysis' element = {<Analysis/>}/>} */}
+        <Route path='/analysis' element={<ProtectedRoute Component = {Analysis}/>}/>
         <Route path='/about' element={<About/>}/>
-        {/* <Route path='/contact' element={<ProtectedRoute Component = {Contact}/>}/> */}
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/resumeBuild' element={<ResumeBuilder/>}/>

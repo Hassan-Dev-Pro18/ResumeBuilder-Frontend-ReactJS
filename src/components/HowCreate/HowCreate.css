@@ -3,14 +3,16 @@
 }
 
 .howCreate h4{
-    font-size: 1.97rem;
+    font-size: 1.7rem;
     text-align: center;
     color: #000;
 }
 .howCreate .pCLass{
     width: 90%;
     align-items: center;
-    padding-left: 10rem;
+    padding-left: 8rem;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .first-step{
@@ -30,11 +32,15 @@
 .des-text{
     width: 45%;
     text-align: start;
-    font-size: 1.1rem;
+    
 }
 
 .des-text h3{
     padding-bottom: 1rem;
+    font-size: 1.33rem;
+}
+.des-text p{
+    font-size: 1.02rem;
 }
 
 .image{

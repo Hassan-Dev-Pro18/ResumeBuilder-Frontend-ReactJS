@@ -3,7 +3,7 @@ import { FaRegLightbulb } from "react-icons/fa"; // Import the icon
 import "./Tips.css";
 import { motion, AnimatePresence } from "framer-motion";
 
-const ProjectForm = ({ formData, setFormData }) => {
+const ProjectForm = ({ formData, setFormData, errors, setErrors }) => {
   const [currentFormIndex, setCurrentFormIndex] = useState(0);
   const [showTips, setShowTips] = useState(false); // State for managing tips visibility
 
@@ -19,6 +19,13 @@ const ProjectForm = ({ formData, setFormData }) => {
       i === index ? { ...item, [e.target.name]: e.target.value } : item
     );
     setFormData({ ...formData, projects: newProjects });
+    const { name } = e.target;
+    // Clear errors as user types
+    const newErrors = { ...errors };
+    if (newErrors.projects && newErrors.projects[index]) {
+      delete newErrors.projects[index][name];
+      setErrors(newErrors);
+    }
   };
 
   const addProject = () => {
@@ -64,23 +71,28 @@ const ProjectForm = ({ formData, setFormData }) => {
               <h3>Expert Guidance and Tips:</h3>
               <ul>
                 <li>
-                  <strong>Project Name:</strong> Clearly state the name of the
-                  project. This helps interviewers quickly understand the focus
-                  of your work and makes it easier to discuss the project in
-                  detail.
+                  <strong>Project Name:</strong> Clearly state the project's
+                  name for easy reference and discussion. Use concise,
+                  descriptive titles that reflect the project's purpose or
+                  outcome.
+                  <b> Example:</b> "E-Commerce Website Development"
                 </li>
                 <li>
-                  <strong>Language/Framework Used:</strong> Specify the
-                  technologies you used. Highlighting relevant technologies
-                  shows your technical skills and aligns with the requirements
-                  of the job you're applying for.
+                  <strong>Language/Framework Used:</strong> Highlight the
+                  programming languages, frameworks, or tools you utilized.
+                  Mention technologies relevant to the job you're applying for
+                  to demonstrate alignment with employer needs. <br />
+                  <b> Example:</b>
+                  "ReactJS, Node.js, MongoDB"
                 </li>
                 <li>
-                  <strong>Project Description:</strong> Provide a brief but
-                  comprehensive description of the project. Focus on your role,
-                  key contributions, and outcomes. This demonstrates your
-                  ability to communicate complex ideas clearly and your impact
-                  on the project.
+                  <strong>Project Description:</strong> Provide a concise
+                  summary of the project, focusing on your role, key
+                  contributions, and outcomes. Emphasize measurable results and
+                  your problem-solving approach to showcase your impact.
+                  <br />
+                  <b> Example:</b> "Developed a scalable e-commerce platform and
+                  integrating payment gateways."
                 </li>
               </ul>
             </motion.div>
@@ -113,7 +125,15 @@ const ProjectForm = ({ formData, setFormData }) => {
           <div key={index} className="AllForm-entry">
             <div className="form-group-container">
               <div className="form-group">
-                <label htmlFor={`ProjectName${index}`}>Project Name</label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`ProjectName${index}`}>Project Name</label>
+                  {errors.projects && errors.projects[index]?.ProjectName && (
+                    <span className="error-message">
+                      {errors.projects[index].ProjectName}
+                    </span>
+                  )}
+                </div>
+
                 <input
                   type="text"
                   name="ProjectName"
@@ -122,9 +142,16 @@ const ProjectForm = ({ formData, setFormData }) => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor={`languageFramework${index}`}>
-                  Language/Framework Used
-                </label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`languageFramework${index}`}>Technology</label>
+                  {errors.projects &&
+                    errors.projects[index]?.languageFramework && (
+                      <span className="error-message">
+                        {errors.projects[index].languageFramework}
+                      </span>
+                    )}
+                </div>
+
                 <input
                   type="text"
                   name="languageFramework"
@@ -136,9 +163,17 @@ const ProjectForm = ({ formData, setFormData }) => {
             <div className="form-group-container1">
               {/* Extra */}
               <div className="form-group">
-                <label htmlFor={`description${index}`}>
-                  Project Description
-                </label>
+                <div className="label-container-resume-build">
+                  <label htmlFor={`description${index}`}>
+                    Project Description
+                  </label>
+                  {errors.projects && errors.projects[index]?.Description && (
+                    <span className="error-message">
+                      {errors.projects[index].Description}
+                    </span>
+                  )}
+                </div>
+
                 <textarea
                   name="Description"
                   value={pro.Description || ""}

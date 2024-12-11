@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./AdminPage.css";
 import Navbar1 from '../Navbar/Navbar1';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ContactMessagesManagement = () => {
     const [messages, setMessages] = useState([]);
@@ -40,6 +42,7 @@ const ContactMessagesManagement = () => {
             setSelectedMessageEmail('');
             setSelectedMessageUsername('');
             await fetchMessages();
+            toast.success("Message sent successfully!");
         } catch (error) {
             console.error('Error replying to message:', error);
         }
@@ -50,6 +53,7 @@ const ContactMessagesManagement = () => {
         try {
             await axios.delete(`http://localhost:4000/messageContact/${messageId}`); // Replace with actual API
             await fetchMessages();
+            toast.success("Message Delete successfully!");
         } catch (error) {
             console.error('Error deleting message:', error);
         }
@@ -128,6 +132,7 @@ const ContactMessagesManagement = () => {
                     </table>
                     </div>
                 )}
+                <ToastContainer />
             </div>
         </div>
     );
