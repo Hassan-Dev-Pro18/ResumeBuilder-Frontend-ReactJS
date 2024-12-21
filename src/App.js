@@ -19,6 +19,7 @@ import TestimonialsManagement from './components/AdminPage/TestimonialsManagemen
 import AdminPage from './components/AdminPage/AdminPage';
 import Admin from './Routes/Admin';
 import AdminMain from './Routes/Admin';
+import ChangeTemplatePage from './Routes/ChangeTemplatePage';
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         {/* <Route path='/template' element={<Template/>}/> */}
         <Route path='/template' element={<ProtectedRoute Component = {Template}/>}/>
+        <Route path='/changeTemplate' element={<ChangeTemplatePage/>}/>
         {/* {<Route path='/analysis' element = {<Analysis/>}/>} */}
         <Route path='/analysis' element={<ProtectedRoute Component = {Analysis}/>}/>
         <Route path='/about' element={<About/>}/>

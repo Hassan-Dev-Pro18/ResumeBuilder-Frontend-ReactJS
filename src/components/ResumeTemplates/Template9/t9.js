@@ -245,6 +245,10 @@ const Template9 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +257,9 @@ const Template9 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
       <div className="body1">
@@ -267,7 +274,7 @@ const Template9 = () => {
               <div className="t9-left-section">
                 <h2 className="t9-left-section-h2">Contact Me</h2>
                 <ul className="t9-left-contact-ul">
-                  <li className="t9-left-contact-li">📞  {personalInfo.contact || "0300*******"}</li>
+                  <li className="t9-left-contact-li">📞  {personalInfo.countryCode} {" "}{personalInfo.contact || "0300*******"}</li>
                   <li className="t9-left-contact-li">📧 {personalInfo.email || "example@email.com"}</li>
                   <li className="t9-left-contact-li">
                     📍 {personalInfo.address || "12-B Gulberg,Lahore"}

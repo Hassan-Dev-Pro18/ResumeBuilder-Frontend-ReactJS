@@ -202,6 +202,7 @@ const Template3 = () => {
   }, []);
 
   const downloadPDF = () => {
+    localStorage.clear();
     const input = document.getElementById("resume");
 
     html2canvas(input, { scale: 2 }) // Increase the scale for better quality
@@ -227,6 +228,7 @@ const Template3 = () => {
       });
   };
   const downloadImage = () => {
+    localStorage.clear();
     const input = document.getElementById("resume");
 
     html2canvas(input, { scale: 2 }).then((canvas) => {
@@ -245,6 +247,10 @@ const Template3 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +259,9 @@ const Template3 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
     <div className="body1">
@@ -272,7 +281,7 @@ const Template3 = () => {
             <div class="t3-contact">
               <h3 className="t3-left-h3">CONTACT</h3>
               <p>{personalInfo.address || "12-B Gulberg,Lahore"}</p>
-              <p>{personalInfo.contact || "0300-*******"}</p>
+              <p>{personalInfo.countryCode} {" "}{personalInfo.contact || "0300-*******"}</p>
               <p>{personalInfo.email || "example@email.com"}</p>
             </div>
             <div class="t3-about-me">

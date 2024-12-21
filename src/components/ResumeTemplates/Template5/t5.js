@@ -245,6 +245,10 @@ const Template5 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +257,9 @@ const Template5 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
     <div className="body1">
@@ -269,7 +276,7 @@ const Template5 = () => {
                 <i class="icon">&#9993;</i> {personalInfo.email || "example@email.com"}
               </p>
               <p>
-                <i class="icon">&#9742;</i> {personalInfo.contact || "0300*******"}
+                <i class="icon">&#9742;</i> {personalInfo.countryCode} {" "}{personalInfo.contact || "0300*******"}
               </p>
               <p>
                 <i class="icon">&#127968;</i> {personalInfo.address || "12-B Gulberg,Lahore"}

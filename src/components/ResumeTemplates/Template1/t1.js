@@ -10,6 +10,8 @@ import {
   FaPhone,
   FaEnvelope,
   FaEdit,
+  FaDelete,
+  FaTrash,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import LoadingData from "../LoadingData";
@@ -33,6 +35,15 @@ const Template1 = () => {
   const [referenceData, setReferenceData] = useState("");
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
+  const [showDeleteCont, setShowDeleteCont] = useState(false);
+  const [showDeletePro, setShowDeletePro] = useState(false);
+  const [showDeleteExp, setShowDeleteExp] = useState(false);
+  const [showDeleteEdu, setShowDeleteEdu] = useState(false);
+  const [showDeleteProj, setShowDeleteProj] = useState(false);
+  const [showDeleteCert, setShowDeleteCert] = useState(false);
+  const [showDeleteIcon, setShowDeleteIcon] = useState(false);
+  const [showDeleteHobbies, setShowDeleteHobbies] = useState(false);
+  const [showDeleteRef, setShowDeleteRef] = useState(false);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -202,31 +213,28 @@ const Template1 = () => {
   }, []);
 
   const downloadPDF = () => {
-    localStorage.clear()
+    localStorage.clear();
     const input = document.getElementById("resume");
-    html2canvas(input, { scale: 2 }) 
-      .then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "a4");
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
 
-        const canvasWidth = canvas.width;
-        const canvasHeight = canvas.height;
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
 
-        const ratio = Math.min(
-          pdfWidth / canvasWidth,
-          pdfHeight / canvasHeight
-        );
+      const ratio = Math.min(pdfWidth / canvasWidth, pdfHeight / canvasHeight);
 
-        const width = canvasWidth * ratio;
-        const height = canvasHeight * ratio;
+      const width = canvasWidth * ratio;
+      const height = canvasHeight * ratio;
 
-        pdf.addImage(imgData, "PNG", 0, 0, width, height);
-        pdf.save("My_Resume.pdf");
-      });
+      pdf.addImage(imgData, "PNG", 0, 0, width, height);
+      pdf.save("My_Resume.pdf");
+    });
   };
   const downloadImage = () => {
+    localStorage.clear();
     const input = document.getElementById("resume");
 
     html2canvas(input, { scale: 2 }).then((canvas) => {
@@ -237,6 +245,41 @@ const Template1 = () => {
       link.click();
       document.body.removeChild(link);
     });
+  };
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
+  const handleDeleteSection = (section) => {
+    if (section === "skills") {
+      setSkillData(null);
+    } else if (section === "contact") {
+      const { contact, address, email, ...rest } = personalInfo;
+      setPersonalInfo(rest);
+    } else if (section === "profile") {
+      const { objective, ...rest } = personalInfo;
+      setPersonalInfo(rest);
+    } else if (section === "education") {
+      setedu1Details(null);
+      setedu2Details(null);
+      setedu3Details(null);
+    } else if (section === "experience") {
+      setexp1Details(null);
+      setexp2Details(null);
+      setexp3Details(null);
+    } else if (section === "reference") {
+      setReferenceData(null);
+    } else if (section === "hobbies") {
+      setHobbiesData(null);
+    } else if (section === "project") {
+      setpro1Details(null);
+      setpro2Details(null);
+      setpro3Details(null);
+    } else if (section === "certificate") {
+      setcert1Details(null);
+      setcert2Details(null);
+      setcert3Details(null);
+    }
   };
   const navigate = useNavigate();
   const handleEditClick = () => {
@@ -254,6 +297,9 @@ const Template1 = () => {
         <p onClick={downloadImage} className="download-btn">
           Download as Image
         </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
+        </p>
       </div>
       <div className="body1">
         <div className="t1_container" id="resume">
@@ -261,8 +307,7 @@ const Template1 = () => {
           <div className="t1-header">
             <div className="t1-name-title">
               <h1 className="t1-h1">
-                {personalInfo.firstName}{" "}
-                {personalInfo.lastName}
+                {personalInfo.firstName} {personalInfo.lastName}
               </h1>
               <p style={{ paddingLeft: "45px", fontWeight: "bold" }}>
                 {personalInfo.linkedin}
@@ -275,32 +320,76 @@ const Template1 = () => {
                 className="t1-profile-image"
               />
             </div>
-            <div className="t1-contact-info">
+            <div
+              className="t1-contact-info"
+              onMouseEnter={() => setShowDeleteCont(true)}
+              onMouseLeave={() => setShowDeleteCont(false)}
+            >
+              <div className="t1-delete-header">
+                {showDeleteCont && (
+                  <span
+                    className="t1-delete-icon"
+                    onClick={() => handleDeleteSection("contact")}
+                    title="Delete Contact Section"
+                  >
+                    <FaTrash />
+                  </span>
+                )}
+              </div>
               <p className="t1-p">
-                <FaHome className="t1-icon" />{" "}
-                {personalInfo.address}
+                <FaHome className="t1-icon" /> {personalInfo.address}
               </p>
               <p className="t1-p">
-                <FaPhone className="t1-icon" />{" "}
-                {personalInfo.contact}
+                <FaPhone className="t1-icon" /> {personalInfo.countryCode} {" "}{personalInfo.contact}
               </p>
               <p className="t1-p">
-                <FaEnvelope className="t1-icon" />{" "}
-                {personalInfo.email }
+                <FaEnvelope className="t1-icon" /> {personalInfo.email}
               </p>
             </div>
           </div>
           <div className="t1-content">
             <div className="t1-sidebar">
-              <div className="t1-profile">
-                <h3 className="t1-sidebar-h3">PROFILE</h3>
-                <p>
-                  {personalInfo.objective }</p>
-              </div>
+              {personalInfo.objective && (
+                <div
+                  className="t1-profile"
+                  onMouseEnter={() => setShowDeletePro(true)}
+                  onMouseLeave={() => setShowDeletePro(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3 className="t1-sidebar-h3">Profile</h3>
+                    {showDeletePro && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("profile")}
+                        title="Delete Profile Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
+                  </div>
+                  <p>{personalInfo.objective}</p>
+                </div>
+              )}
 
               {skillData && (
-                <div className="t1-skills">
-                  <h3 className="t1-sidebar-h3">SKILLS</h3>
+                <div
+                  className="t1-skills"
+                  onMouseEnter={() => setShowDeleteIcon(true)}
+                  onMouseLeave={() => setShowDeleteIcon(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3 className="t1-sidebar-h3">SKILLS</h3>
+                    {showDeleteIcon && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("skills")}
+                        title="Delete Skills Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
+                  </div>
+
                   <ul className="t1-ul">
                     {skillData.skill1 && (
                       <li className="t1-li"> {skillData.skill1}</li>
@@ -324,8 +413,23 @@ const Template1 = () => {
                 </div>
               )}
               {hobbiesData && (
-                <div className="t1-hobbies">
-                  <h3 className="t1-sidebar-h3">HOBBIES</h3>
+                <div
+                  className="t1-hobbies"
+                  onMouseEnter={() => setShowDeleteHobbies(true)}
+                  onMouseLeave={() => setShowDeleteHobbies(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3 className="t1-sidebar-h3">HOBBIES</h3>
+                    {showDeleteHobbies && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("hobbies")}
+                        title="Delete Hobbies Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
+                  </div>
                   <ul className="t1-ul">
                     {hobbiesData.hobby1 && (
                       <li className="t1-li">{hobbiesData.hobby1}</li>
@@ -346,8 +450,23 @@ const Template1 = () => {
                 </div>
               )}
               {referenceData && (
-                <div className="t1-hobbies">
-                  <h3 className="t1-sidebar-h3">Refernce</h3>
+                <div
+                  className="t1-hobbies"
+                  onMouseEnter={() => setShowDeleteRef(true)}
+                  onMouseLeave={() => setShowDeleteRef(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3 className="t1-sidebar-h3">Reference</h3>
+                    {showDeleteRef && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("reference")}
+                        title="Delete Reference Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
+                  </div>
                   <ul className="t1-ul">
                     <li className="t1-li">
                       {referenceData.reference1}
@@ -359,206 +478,308 @@ const Template1 = () => {
               )}
             </div>
             <div className="t1-main-content">
-              <div className="t1-experience">
-                <h3>EXPERIENCE</h3>
-                <div className="t1-job">
-                  {exp1Detail && (
-                    <div>
-                      <p className="t1-job-p">
-                        {exp1Detail.JobTitle && (<strong>{exp1Detail.JobTitle}</strong>)}
-                        {exp1Detail.StartYear && exp1Detail.EndYear && (<em>
-                          ({exp1Detail.StartYear} -{" "}
-                          {exp1Detail.EndYear})
-                        </em>)}
-                        
-                      </p>
-                      <p className="t1-job-p">
-                        <span>{exp1Detail.CompanyName}</span>
-                      </p>
-                      <ul className="t1-job-ul">
-                        {exp1Detail.Responsibilties && (<li className="t1-job-li">
-                          {exp1Detail.Responsibilties}
-                        </li>)}
-                        
-                      </ul>
-                    </div>
-                  )}
+              {(exp1Detail || exp2Detail || exp3Detail) && (
+                <div
+                  className="t1-experience"
+                  onMouseEnter={() => setShowDeleteExp(true)}
+                  onMouseLeave={() => setShowDeleteExp(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3>Experience</h3>
+                    {showDeleteExp && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("experience")}
+                        title="Delete Experience Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
+                  </div>
+                  <div className="t1-job">
+                    {exp1Detail && (
+                      <div>
+                        <p className="t1-job-p">
+                          {exp1Detail.JobTitle && (
+                            <strong>{exp1Detail.JobTitle}</strong>
+                          )}
+                          {exp1Detail.StartYear && exp1Detail.EndYear && (
+                            <em>
+                              ({exp1Detail.StartYear} - {exp1Detail.EndYear})
+                            </em>
+                          )}
+                        </p>
+                        <p className="t1-job-p">
+                          <span>{exp1Detail.CompanyName}</span>
+                        </p>
+                        <ul className="t1-job-ul">
+                          {exp1Detail.Responsibilties && (
+                            <li className="t1-job-li">
+                              {exp1Detail.Responsibilties}
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
 
-                  {exp2Detail && (
-                    <div>
-                    <p className="t1-job-p">
-                      {exp2Detail.JobTitle && (<strong>{exp2Detail.JobTitle}</strong>)}
-                      {exp2Detail.StartYear && exp2Detail.EndYear && (<em>
-                        ({exp2Detail.StartYear} -{" "}
-                        {exp2Detail.EndYear})
-                      </em>)}
-                      
-                    </p>
-                    <p className="t1-job-p">
-                      <span>{exp2Detail.CompanyName}</span>
-                    </p>
-                    <ul className="t1-job-ul">
-                      {exp2Detail.Responsibilties && (<li className="t1-job-li">
-                        {exp2Detail.Responsibilties}
-                      </li>)}
-                      
-                    </ul>
+                    {exp2Detail && (
+                      <div>
+                        <p className="t1-job-p">
+                          {exp2Detail.JobTitle && (
+                            <strong>{exp2Detail.JobTitle}</strong>
+                          )}
+                          {exp2Detail.StartYear && exp2Detail.EndYear && (
+                            <em>
+                              ({exp2Detail.StartYear} - {exp2Detail.EndYear})
+                            </em>
+                          )}
+                        </p>
+                        <p className="t1-job-p">
+                          <span>{exp2Detail.CompanyName}</span>
+                        </p>
+                        <ul className="t1-job-ul">
+                          {exp2Detail.Responsibilties && (
+                            <li className="t1-job-li">
+                              {exp2Detail.Responsibilties}
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                    {exp3Detail && (
+                      <div>
+                        <p className="t1-job-p">
+                          {exp3Detail.JobTitle && (
+                            <strong>{exp3Detail.JobTitle}</strong>
+                          )}
+                          {exp3Detail.StartYear && exp3Detail.EndYear && (
+                            <em>
+                              ({exp3Detail.StartYear} - {exp3Detail.EndYear})
+                            </em>
+                          )}
+                        </p>
+                        <p className="t1-job-p">
+                          <span>{exp3Detail.CompanyName}</span>
+                        </p>
+                        <ul className="t1-job-ul">
+                          {exp3Detail.Responsibilties && (
+                            <li className="t1-job-li">
+                              {exp3Detail.Responsibilties}
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                  )}
-                  {exp3Detail && (
-                    <div>
-                    <p className="t1-job-p">
-                      {exp3Detail.JobTitle && (<strong>{exp3Detail.JobTitle}</strong>)}
-                      {exp3Detail.StartYear && exp3Detail.EndYear && (<em>
-                        ({exp3Detail.StartYear} -{" "}
-                        {exp3Detail.EndYear})
-                      </em>)}
-                      
-                    </p>
-                    <p className="t1-job-p">
-                      <span>{exp3Detail.CompanyName}</span>
-                    </p>
-                    <ul className="t1-job-ul">
-                      {exp3Detail.Responsibilties && (<li className="t1-job-li">
-                        {exp3Detail.Responsibilties}
-                      </li>)}
-                      
-                    </ul>
-                  </div>
-                  )}
                 </div>
-              </div>
-              <div className="t1-education">
-                <h3>EDUCATION</h3>
-                {edu1Details && (
-                  <div>
-                    <p className="t1-main-p">
-                      <strong>{edu1Details.InstituteName}</strong>
-                    </p>
-                    <p>{edu1Details.Degree}</p>
-                    <p className="t1-main-p">
-                      {edu1Details.StartYear && edu1Details.PassOutYear && (<em>
-                        ({edu1Details.StartYear} - {edu1Details.PassOutYear})
-                      </em>)}
-                    </p>
+              )}
+              {(edu1Details || edu2Details || edu3Details) && (
+                <div
+                  className="t1-education"
+                  onMouseEnter={() => setShowDeleteEdu(true)}
+                  onMouseLeave={() => setShowDeleteEdu(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3>EDUCATION</h3>
+                    {showDeleteEdu && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("education")}
+                        title="Delete Education Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
                   </div>
-                )}
-                {edu2Details && (
-                  <div>
-                    <p className="t1-main-p">
-                      <strong>{edu2Details.InstituteName}</strong>
-                    </p>
-                    <p>{edu2Details.Degree}</p>
-                    <p className="t1-main-p">
-                    {edu2Details.StartYear && edu2Details.PassOutYear && (<em>
-                        ({edu2Details.StartYear} - {edu2Details.PassOutYear})
-                      </em>)}
-                    </p>
-                  </div>
-                )}
-                {edu3Details && (
-                  <div>
-                    <p className="t1-main-p">
-                      <strong>{edu3Details.InstituteName}</strong>
-                    </p>
-                    <p>{edu3Details.Degree}</p>
-                    <p className="t1-main-p">
-                    {edu3Details.StartYear && edu3Details.PassOutYear && (<em>
-                        ({edu3Details.StartYear} - {edu3Details.PassOutYear})
-                      </em>)}
-                    </p>
-                  </div>
-                )}
-              </div>
-              <div className="t1-projects">
-                <div>
-                  <h3>PROJECTS</h3>
-                  {pro1Detail && (
+                  {edu1Details && (
                     <div>
                       <p className="t1-main-p">
-                        <strong>{pro1Detail.ProjectName}</strong>
+                        <strong>{edu1Details.InstituteName}</strong>
                       </p>
-                      {pro1Detail.languageFramework && (<p className="t1-main-p">
-                        ({pro1Detail.languageFramework})
-                      </p>)}
-                      
-                      { pro1Detail.Description && (<ul className="t1-main-ul">
-                        <li className="t1-main-li">{pro1Detail.Description}</li>
-                      </ul>)}
+                      <p>{edu1Details.Degree}</p>
+                      <p className="t1-main-p">
+                        {edu1Details.StartYear && edu1Details.PassOutYear && (
+                          <em>
+                            ({edu1Details.StartYear} - {edu1Details.PassOutYear}
+                            )
+                          </em>
+                        )}
+                      </p>
                     </div>
                   )}
-                  {pro2Detail && (
+                  {edu2Details && (
                     <div>
                       <p className="t1-main-p">
-                        <strong>{pro2Detail.ProjectName}</strong>
+                        <strong>{edu2Details.InstituteName}</strong>
                       </p>
-                      {pro2Detail.languageFramework && (<p className="t1-main-p">
-                        ({pro2Detail.languageFramework})
-                      </p>)}
-                      { pro2Detail.Description && (<ul className="t1-main-ul">
-                        <li className="t1-main-li">{pro2Detail.Description}</li>
-                      </ul>)}
-                      
+                      <p>{edu2Details.Degree}</p>
+                      <p className="t1-main-p">
+                        {edu2Details.StartYear && edu2Details.PassOutYear && (
+                          <em>
+                            ({edu2Details.StartYear} - {edu2Details.PassOutYear}
+                            )
+                          </em>
+                        )}
+                      </p>
                     </div>
                   )}
-                  {pro3Detail && (
+                  {edu3Details && (
                     <div>
                       <p className="t1-main-p">
-                        <strong>{pro3Detail.ProjectName}</strong>
+                        <strong>{edu3Details.InstituteName}</strong>
                       </p>
-                      {pro3Detail.languageFramework && (<p className="t1-main-p">
-                        ({pro3Detail.languageFramework})
-                      </p>)}
-                      { pro3Detail.Description && (<ul className="t1-main-ul">
-                        <li className="t1-main-li">{pro3Detail.Description}</li>
-                      </ul>)}
+                      <p>{edu3Details.Degree}</p>
+                      <p className="t1-main-p">
+                        {edu3Details.StartYear && edu3Details.PassOutYear && (
+                          <em>
+                            ({edu3Details.StartYear} - {edu3Details.PassOutYear}
+                            )
+                          </em>
+                        )}
+                      </p>
                     </div>
                   )}
                 </div>
-              </div>
-              <div className="t1-projects">
-                <h3>CERTIFICATE</h3>
-                {cert1Detail && (
+              )}
+              {(pro1Detail || pro2Detail || pro3Detail) && (
+                <div
+                  className="t1-projects"
+                  onMouseEnter={() => setShowDeleteProj(true)}
+                  onMouseLeave={() => setShowDeleteProj(false)}
+                >
                   <div>
-                    <p className="t1-main-p">
-                      <strong>
-                        {cert1Detail.certificateName }
-                      </strong>
-                    </p>
-                    <p className="t1-main-p">
-                      {cert1Detail.IssuingOrg}{" "}
-                      {cert1Detail.IssueDate && (<em>({cert1Detail.IssueDate})</em>)}
-                      
-                    </p>
+                    <div className="t1-delete-header">
+                      <h3>PROJECT</h3>
+                      {showDeleteProj && (
+                        <span
+                          className="t1-delete-icon"
+                          onClick={() => handleDeleteSection("project")}
+                          title="Delete Project Section"
+                        >
+                          <FaTrash />
+                        </span>
+                      )}
+                    </div>
+                    {pro1Detail && (
+                      <div>
+                        <p className="t1-main-p">
+                          <strong>{pro1Detail.ProjectName}</strong>
+                        </p>
+                        {pro1Detail.languageFramework && (
+                          <p className="t1-main-p">
+                            ({pro1Detail.languageFramework})
+                          </p>
+                        )}
+
+                        {pro1Detail.Description && (
+                          <ul className="t1-main-ul">
+                            <li className="t1-main-li">
+                              {pro1Detail.Description}
+                            </li>
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                    {pro2Detail && (
+                      <div>
+                        <p className="t1-main-p">
+                          <strong>{pro2Detail.ProjectName}</strong>
+                        </p>
+                        {pro2Detail.languageFramework && (
+                          <p className="t1-main-p">
+                            ({pro2Detail.languageFramework})
+                          </p>
+                        )}
+                        {pro2Detail.Description && (
+                          <ul className="t1-main-ul">
+                            <li className="t1-main-li">
+                              {pro2Detail.Description}
+                            </li>
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                    {pro3Detail && (
+                      <div>
+                        <p className="t1-main-p">
+                          <strong>{pro3Detail.ProjectName}</strong>
+                        </p>
+                        {pro3Detail.languageFramework && (
+                          <p className="t1-main-p">
+                            ({pro3Detail.languageFramework})
+                          </p>
+                        )}
+                        {pro3Detail.Description && (
+                          <ul className="t1-main-ul">
+                            <li className="t1-main-li">
+                              {pro3Detail.Description}
+                            </li>
+                          </ul>
+                        )}
+                      </div>
+                    )}
                   </div>
-                )}
-                {cert2Detail && (
-                  <div>
-                    <p className="t1-main-p">
-                      <strong>
-                        {cert2Detail.certificateName }
-                      </strong>
-                    </p>
-                    <p className="t1-main-p">
-                      {cert2Detail.IssuingOrg }{" "}
-                      {cert2Detail.IssueDate && (<em>({cert2Detail.IssueDate})</em>)}
-                    </p>
+                </div>
+              )}
+              {(cert1Detail || cert2Detail || cert3Detail) && (
+                <div
+                  className="t1-projects"
+                  onMouseEnter={() => setShowDeleteCert(true)}
+                  onMouseLeave={() => setShowDeleteCert(false)}
+                >
+                  <div className="t1-delete-header">
+                    <h3>CERTIFICATE</h3>
+                    {showDeleteCert && (
+                      <span
+                        className="t1-delete-icon"
+                        onClick={() => handleDeleteSection("certificate")}
+                        title="Delete Certificate Section"
+                      >
+                        <FaTrash />
+                      </span>
+                    )}
                   </div>
-                )}
-                {cert3Detail && (
-                  <div>
-                    <p className="t1-main-p">
-                      <strong>
-                        {cert3Detail.certificateName}
-                      </strong>
-                    </p>
-                    <p className="t1-main-p">
-                      {cert3Detail.IssuingOrg}{" "}
-                      {cert3Detail.IssueDate && (<em>({cert3Detail.IssueDate})</em>)}
-                    </p>
-                  </div>
-                )}
-              </div>
+                  {cert1Detail && (
+                    <div>
+                      <p className="t1-main-p">
+                        <strong>{cert1Detail.certificateName}</strong>
+                      </p>
+                      <p className="t1-main-p">
+                        {cert1Detail.IssuingOrg}{" "}
+                        {cert1Detail.IssueDate && (
+                          <em>({cert1Detail.IssueDate})</em>
+                        )}
+                      </p>
+                    </div>
+                  )}
+                  {cert2Detail && (
+                    <div>
+                      <p className="t1-main-p">
+                        <strong>{cert2Detail.certificateName}</strong>
+                      </p>
+                      <p className="t1-main-p">
+                        {cert2Detail.IssuingOrg}{" "}
+                        {cert2Detail.IssueDate && (
+                          <em>({cert2Detail.IssueDate})</em>
+                        )}
+                      </p>
+                    </div>
+                  )}
+                  {cert3Detail && (
+                    <div>
+                      <p className="t1-main-p">
+                        <strong>{cert3Detail.certificateName}</strong>
+                      </p>
+                      <p className="t1-main-p">
+                        {cert3Detail.IssuingOrg}{" "}
+                        {cert3Detail.IssueDate && (
+                          <em>({cert3Detail.IssueDate})</em>
+                        )}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

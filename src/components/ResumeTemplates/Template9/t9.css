@@ -1,6 +1,7 @@
 .t9-resume {
     display: flex;
-    width: 800px;
+    width: 850px;
+    max-width: 850px;
     margin: auto;
   }
   

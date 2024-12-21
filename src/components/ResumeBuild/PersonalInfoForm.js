@@ -19,7 +19,7 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [currentSuggestionIndex, setCurrentSuggestionIndex] = useState(0);
   const templateID = localStorage.getItem("selectedTemplateId");
-  console.log(templateID)
+  console.log(templateID);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -30,15 +30,14 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
       },
     });
 
-    
     let newErrors = { ...errors };
 
     if (name === "firstName" && value.trim() !== "") {
-      delete newErrors.firstName; 
+      delete newErrors.firstName;
     }
 
     if (name === "lastName" && value.trim() !== "") {
-      delete newErrors.lastName; 
+      delete newErrors.lastName;
     }
 
     if (name === "email") {
@@ -52,23 +51,23 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
     if (name === "contact") {
       const phoneRegex = /^[0-9]{11}$/;
       if (phoneRegex.test(value)) {
-        delete newErrors.contact; 
+        delete newErrors.contact;
       }
     }
 
     if (name === "address" && value.trim() !== "") {
-      delete newErrors.address; 
+      delete newErrors.address;
     }
 
     if (name === "linkedin" && value.trim() !== "") {
-      delete newErrors.linkedin; 
+      delete newErrors.linkedin;
     }
 
     if (name === "objective" && value.trim() !== "") {
-      delete newErrors.objective; 
+      delete newErrors.objective;
     }
 
-    setErrors(newErrors); 
+    setErrors(newErrors);
   };
 
   const handleObjectiveClick = () => {
@@ -88,10 +87,8 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64String = reader.result;
-        
-        localStorage.setItem("uploadedImage", base64String);
-        
 
+        localStorage.setItem("uploadedImage", base64String);
       };
       reader.readAsDataURL(file);
     }
@@ -157,13 +154,32 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
                 <span className="error-message">{errors.contact}</span>
               )}
             </div>
+            <div className="contact-container">
+            <select
+              name="countryCode"
+              value={formData.personalInfo.countryCode || "+1"}
+              onChange={handleChange}
+              className="country-code-dropdown"
+            >
+              <option value="+1">+1 (USA)</option>
+              
+              <option value="+44">+44 (UK)</option>
+              <option value="+91">+91 (IND)</option>
+              
+              <option value="+61">+61 (AUS)</option>
+              <option value="+81">+81 (JAP)</option>
+              <option value="+92">+92 (PK)</option>
+              {/* Add more country codes as needed */}
+            </select>
 
             <input
               type="text"
               name="contact"
               value={formData.personalInfo.contact || ""}
               onChange={handleChange}
+              className="phone-input"
             />
+            </div>
           </div>
         </div>
         <div className="form-group-container">
@@ -233,14 +249,17 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
             </AnimatePresence>
           </div>
           {templateID == 1 || templateID == 2 || templateID == 3 ? ( // Show section only if id is 1, 2, or 3
-        <div className="form-group">
-          <div className="label-container-resume-build">
-            <label htmlFor="profile_pic">Upload Image</label>
-            
-          </div>
-          <input type="file" accept="image/*" onChange={handleImageUpload} />
-        </div>
-      ) : null}
+            <div className="form-group">
+              <div className="label-container-resume-build">
+                <label htmlFor="profile_pic">Upload Image</label>
+              </div>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

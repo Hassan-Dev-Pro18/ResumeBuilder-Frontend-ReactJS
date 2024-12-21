@@ -245,6 +245,10 @@ const Template1 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +257,9 @@ const Template1 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
     <div className="body1">
@@ -277,7 +284,7 @@ const Template1 = () => {
                 <h2 className="t4-sidebar-h2">Contact Me</h2>
                 <ul className="t4-sidebar-ul">
                   <li>{personalInfo.address || "12-B Gulberg,Lahore"}</li>
-                  <li>{personalInfo.contact || "0300-*******"}</li>
+                  <li>{personalInfo.countryCode} {" "}{personalInfo.contact || "0300-*******"}</li>
                   <li>{personalInfo.email || "example@email.com"}</li>
                 </ul>
               </div>

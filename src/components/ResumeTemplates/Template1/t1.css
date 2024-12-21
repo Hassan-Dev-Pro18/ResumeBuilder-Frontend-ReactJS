@@ -12,6 +12,7 @@
 }
 
 .t1_container {
+    width: 850px;
     max-width: 850px;
     position: relative;
     border: 1px solid transparent; /* Default border */
@@ -22,9 +23,7 @@
     background-color: #fff;
     box-shadow: 0 8px 10px rgba(0,0,0,0.1);
 }
-.t1_container:hover {
-    border-color: #003135; /* Border color on hover */
-  }
+
 p,li{
     text-align: justify;
 }
@@ -111,7 +110,21 @@ ul {
     list-style-type:disc;
     margin-left: 20px;
 }
-
+.t1-delete-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .t1-delete-icon {
+    cursor: pointer;
+    color: #003135;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+  }
+  
 .t1-sidebar .t1-sidebar-h3 {
     font-size: 18px;
     color: #004080;
@@ -176,7 +189,7 @@ ul {
   }
   .button-containers {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     transition: opacity 0.3s ease-in-out;
     position: relative;

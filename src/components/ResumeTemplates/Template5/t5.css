@@ -1,6 +1,7 @@
 .t5-resume {
     display: flex;
-    max-width: 900px;
+    width: 850px;
+    max-width: 850px;
     margin: auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }

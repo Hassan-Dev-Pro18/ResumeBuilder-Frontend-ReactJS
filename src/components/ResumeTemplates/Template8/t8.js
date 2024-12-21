@@ -245,6 +245,10 @@ const Template8 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +257,9 @@ const Template8 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
       <div className="body1">
@@ -335,7 +342,7 @@ const Template8 = () => {
                   <strong>Location:</strong> {personalInfo.address || "12-B Gulberg,Lahore"}
                 </p>
                 <p className="t8-contact-p">
-                  <strong>Contact:</strong> {personalInfo.contact || "0300*******"}
+                  <strong>Contact:</strong> {personalInfo.countryCode} {" "}{personalInfo.contact || "0300*******"}
                 </p>
               </div>
               <div class="t8-work-experience">

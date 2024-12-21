@@ -1,6 +1,7 @@
 .t7-resume {
     display: flex;
-    max-width: 900px;
+    width: 850px;
+    max-width: 850px;
     margin: auto;
     background: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

@@ -226,10 +226,31 @@ const ResumeBuilder = () => {
           newErrors.contact = "*Required";
           isValid = false;
         } else {
-          // Validate contact number format
-          const phoneRegex = /^[0-9]{11}$/;
-          if (!phoneRegex.test(personalInfo.contact)) {
-            newErrors.contact = "*Invalid contact number";
+          // Define regex patterns for different country codes
+          const phoneRegexPatterns = {
+            "+1": /^[2-9][0-9]{2}[2-9][0-9]{2}[0-9]{4}$/, // USA: 10 digits
+            "+44": /^(\d{10}|\d{11})$/, // UK: 10 or 11 digits
+            "+91": /^[6-9]\d{9}$/, // India: Starts with 6-9 and 10 digits
+            "+61": /^\d{9}$/, // Australia: 9 digits
+            "+81": /^\d{10}$/, // Japan: 10 digits
+            "+92": /^[3][0-9]{9}$/, // Pakistan: Starts with 3 and 10 digits (e.g., 3001234567)
+            "+33": /^\d{9}$/, // France: 9 digits
+            "+49": /^\d{10,11}$/, // Germany: 10-11 digits
+            "+86": /^\d{11}$/ // China: 11 digits
+          };
+        
+          // Get the selected country code
+          const countryCode = personalInfo.countryCode;
+        
+          // Get the regex for the selected country code
+          const regex = phoneRegexPatterns[countryCode];
+        
+          // Validate contact number based on selected country code
+          if (regex && !regex.test(personalInfo.contact)) {
+            newErrors.contact = `*Invalid contact number for ${countryCode}`;
+            isValid = false;
+          } else if (!regex) {
+            newErrors.contact = "*Unsupported country code";
             isValid = false;
           }
         }

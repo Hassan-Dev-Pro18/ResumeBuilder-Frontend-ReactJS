@@ -5,6 +5,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   .t2_container {
+    width: 850px;
     max-width: 850px;
     position: relative;
     border: 1px solid transparent; /* Default border */
@@ -16,9 +17,7 @@
     background-color: #fff;
     box-shadow: 0 8px 10px rgba(0,0,0,0.1);
 }
-.t2_container:hover {
-    border-color: #003135; /* Border color on hover */
-  }
+
   .t2_container:hover .edit-icon {
     color: #003135; /* Icon color on hover */
   }

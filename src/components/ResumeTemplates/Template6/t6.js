@@ -245,6 +245,10 @@ const Template6 = () => {
   if (loading) {
     return <LoadingData />;
   }
+  const changeTemplate = () =>{
+    
+    navigate('/changeTemplate', { replace: true })
+  }
   return (
     <div>
       <div className="button-containers">
@@ -253,6 +257,9 @@ const Template6 = () => {
         </p>
         <p onClick={downloadImage} className="download-btn">
           Download as Image
+        </p>
+        <p onClick={changeTemplate} className="download-btn">
+          Change Template
         </p>
       </div>
     <div className="body1">
@@ -263,8 +270,8 @@ const Template6 = () => {
             <img src={image || UserImage} alt="Profile Picture" class="t6-profile-pic" />
             <div class="t6-header-info">
               <h1 className="t6-header-info-h1">{" "}
-              {personalInfo.firstName || "KHALIL"}{" "}
-              {personalInfo.lastName || "RICHARDSON"}</h1>
+              {personalInfo.firstName }{" "}
+              {personalInfo.lastName }</h1>
               <p className="t6-header-info-p">
               {personalInfo.linkedin || "Web Developers"}
               </p>
@@ -277,7 +284,7 @@ const Template6 = () => {
                 <h2 className="t6-sidebar-h2">Contact</h2>
                 <ul className="t6-sidebar-ul">
                   <li className="t6-sidebar-skill-li ">{"  "} {personalInfo.email || "example@email.com"}</li>
-                  <li className="t6-sidebar-skill-li ">{personalInfo.contact || "0300*******"}</li>
+                  <li className="t6-sidebar-skill-li ">{personalInfo.countryCode} {" "}{personalInfo.contact || "0300*******"}</li>
                   <li className="t6-sidebar-skill-li ">{personalInfo.address || "12-B Gulberg,Lahore"}</li>
                 </ul>
               </section>

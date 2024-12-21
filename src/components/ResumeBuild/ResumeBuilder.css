@@ -76,7 +76,24 @@
   background-color: #00d1b2;
   color: #fff;
 }
+.contact-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.country-code-dropdown {
+  width: 95px;
+  margin-top: -0.9rem;
+  margin-left: -1.2rem;
+  padding: 4px;
+  font-size: 14px;
+}
+.phone-input {
+  flex: 1;
+  margin-top: -0.9rem;
+  font-size: 14px;
+}
 
 
 .step-name {
