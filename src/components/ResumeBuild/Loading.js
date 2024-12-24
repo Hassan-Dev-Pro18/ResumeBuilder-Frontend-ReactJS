@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <div className="loading-overlay">
       <div className="loading-spinner"></div>
-      <p className="loading-text">Uploading your resume...</p>
+      <p className="loading-text">Loading...</p>
     </div>
   );
 };

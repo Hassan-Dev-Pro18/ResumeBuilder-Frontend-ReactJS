@@ -26,8 +26,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home/>}/>
-        {/* <Route path='/template' element={<Template/>}/> */}
-        <Route path='/template' element={<ProtectedRoute Component = {Template}/>}/>
+        <Route path='/template' element={<Template/>}/>
+        {/* <Route path='/template' element={<ProtectedRoute Component = {Template}/>}/> */}
         <Route path='/changeTemplate' element={<ChangeTemplatePage/>}/>
         {/* {<Route path='/analysis' element = {<Analysis/>}/>} */}
         <Route path='/analysis' element={<ProtectedRoute Component = {Analysis}/>}/>

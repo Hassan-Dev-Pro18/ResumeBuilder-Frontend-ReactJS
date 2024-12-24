@@ -84,6 +84,18 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
+      // Check file type
+      const validTypes = ["image/jpeg", "image/png", "image/jpg"];
+      if (!validTypes.includes(file.type)) {
+        alert("Only JPEG, JPG, or PNG files are allowed.");
+        return;
+      }
+      // Check file size (10MB = 10 * 1024 * 1024 bytes)
+      const maxSize = 10 * 1024 * 1024;
+      if (file.size > maxSize) {
+        alert("File size must be less than 10MB.");
+        return;
+      }
       const reader = new FileReader();
       reader.onloadend = () => {
         const base64String = reader.result;
@@ -155,30 +167,30 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
               )}
             </div>
             <div className="contact-container">
-            <select
-              name="countryCode"
-              value={formData.personalInfo.countryCode || "+1"}
-              onChange={handleChange}
-              className="country-code-dropdown"
-            >
-              <option value="+1">+1 (USA)</option>
-              
-              <option value="+44">+44 (UK)</option>
-              <option value="+91">+91 (IND)</option>
-              
-              <option value="+61">+61 (AUS)</option>
-              <option value="+81">+81 (JAP)</option>
-              <option value="+92">+92 (PK)</option>
-              {/* Add more country codes as needed */}
-            </select>
+              <select
+                name="countryCode"
+                value={formData.personalInfo.countryCode || "+1"}
+                onChange={handleChange}
+                className="country-code-dropdown"
+              >
+                <option value="+1">+1 (USA)</option>
 
-            <input
-              type="text"
-              name="contact"
-              value={formData.personalInfo.contact || ""}
-              onChange={handleChange}
-              className="phone-input"
-            />
+                <option value="+44">+44 (UK)</option>
+                <option value="+91">+91 (IND)</option>
+
+                <option value="+61">+61 (AUS)</option>
+                <option value="+81">+81 (JAP)</option>
+                <option value="+92">+92 (PK)</option>
+                {/* Add more country codes as needed */}
+              </select>
+
+              <input
+                type="text"
+                name="contact"
+                value={formData.personalInfo.contact || ""}
+                onChange={handleChange}
+                className="phone-input"
+              />
             </div>
           </div>
         </div>
@@ -255,7 +267,7 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
               </div>
               <input
                 type="file"
-                accept="image/*"
+                accept="image/jpeg, image/png, image/jpg"
                 onChange={handleImageUpload}
               />
             </div>

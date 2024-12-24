@@ -1,5 +1,6 @@
 /* General styling */
 
+/*Resume Createion Page Background*/
 .resume_builder {
   margin: 0;
   padding-top: 60px;
@@ -10,11 +11,11 @@
   background-color: #eeeeee;
 }
 
+/*Side Menu of Resume Page*/
 .progress-container {
-  width: 23%; /* Reduced width for progress bar */
-  height: 91vh; /* Increased height */
+  width: 23%; 
+  height: 87vh;
   background-color: #024950;
-  /* padding: 40px; */
   border-radius: 2rem;
   padding-top: 2rem;
   display: flex;
@@ -24,11 +25,12 @@
   margin-top: -1.4rem;
 }
 
+/*Form OF all Section in Main Page OF Resume*/
 .form_container {
   position: relative;
   width: 50%; /* Fixed width for form container */
-  height: 90vh;
-  max-height: 90%;
+  height: 85vh;
+  max-height: 85%;
   background-color: #ffffff;
   border-radius: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -38,18 +40,18 @@
   margin-bottom: 30px;
 }
 
-/* Progress bar and steps */
+/* Progress bar and all steps show */
 .progress-grid {
   display: flex;
   flex-direction: column;
   align-items: flex-start; 
 }
 
+/*All CSS for when one section complete and other unlock, change color, change icon etc.*/
 .progress-step {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  /*Extra*/
   color: #fffdfd;
   transition: color 0.3s ease;
 }
@@ -76,25 +78,6 @@
   background-color: #00d1b2;
   color: #fff;
 }
-.contact-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.country-code-dropdown {
-  width: 95px;
-  margin-top: -0.9rem;
-  margin-left: -1.2rem;
-  padding: 4px;
-  font-size: 14px;
-}
-.phone-input {
-  flex: 1;
-  margin-top: -0.9rem;
-  font-size: 14px;
-}
-
 
 .step-name {
   font-weight: bold;
@@ -104,7 +87,7 @@
 
 
 
-/* Form styling */
+/* Form all inputs & other styling */
 .form-section {
   /* margin-bottom: 20px; */
   padding-top: 10;
@@ -122,6 +105,7 @@
   color: #003135;
   justify-content: center;
 }
+/*This for create one more form like education and experience*/
 .AllForm-list {
   display: flex;
   flex-wrap: wrap;
@@ -169,11 +153,6 @@
   border: 1px solid #ccc;
 }
 
-.form-desc {
-  font-size: 15px;
-  padding-top: 2px;
-  padding-bottom: 3px;
-}
 .form-group {
   display: flex;
   flex-direction: column;
@@ -181,8 +160,8 @@
   position: relative;
 }
 .error-message {
-  color: red; /* Change this to your preferred color */
-  font-size: 0.588em; /* Smaller font size */
+  color: red;
+  font-size: 0.588em;
   
 }
 .label-container-resume-build {
@@ -202,7 +181,6 @@
   font-size: 16px;
   transition: all 0.2s;
   margin-top: 2px;
-  /* padding-top: 10px; */
 }
 
 .add-AllForm-text:hover {
@@ -222,7 +200,7 @@
 
 .form-group input,
 .form-group textarea {
-  width: 100%; /* Ensure inputs fill the width of the container */
+  width: 100%; 
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -238,13 +216,6 @@
   outline: none;
 }
 
-.form-group textarea {
-  resize: none; /* Prevent resizing of the textarea */
-  height: 100px; /* Set fixed height for the textarea */
-}
-
-
-
 .calendar-icon {
   position: absolute;
   right: 10px;
@@ -254,10 +225,10 @@
   color: #5c5c5c;
 }
 
-
+/*Button of form section*/
 .button-container {
   position: absolute;
-  bottom: 30px; /* Position buttons at the bottom */
+  bottom: 8px; /* Position buttons at the bottom */
   width: 93%;
   display: flex;
   justify-content: space-between; /* Space between buttons */
@@ -281,6 +252,26 @@
   background-color: #fff;
   color: #003135;
   border: 2px solid #003135;
+}
+/*Country Code For contact*/
+.contact-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -2rem;
+}
+
+.country-code-dropdown {
+  width: 95px;
+  margin-top: -0.9rem;
+  margin-left: -1.2rem;
+  padding: 4px;
+  font-size: 14px;
+}
+.phone-input {
+  flex: 1;
+  margin-top: -0.9rem;
+  font-size: 14px;
 }
 
 /* Responsive design */

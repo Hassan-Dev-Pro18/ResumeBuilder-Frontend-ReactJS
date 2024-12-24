@@ -60,30 +60,7 @@ const TermsAndConditions = () => {
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="terms-section">
-        <h2>2. License to Use</h2>
-        <p>
-          Resume Builder grants you a limited, non-exclusive, non-transferable, and
-          revocable license to use our resume builder tool. You must not:
-        </p>
-        <ul className="terms-ul">
-          <li className="terms-li">
-            Republish, distribute, or share any content or materials obtained
-            from Resume Builder in any form or through any medium, whether
-            electronically or otherwise, without prior written consent from
-            Resume Builder.
-          </li>
-          <li className="terms-li">
-            Use the Resume Builder tool to create or distribute any content that is
-            illegal, defamatory, obscene, or otherwise objectionable or violates
-            any third-party rights.
-          </li>
-          <li className="terms-li">
-            Reproduce, duplicate, or copy any material for commercial purposes.
-          </li>
-        </ul>
-      </motion.div>
-      <motion.div variants={itemVariants} className="terms-section">
-        <h2>3. User Responsibility</h2>
+        <h2>2. User Responsibility</h2>
         <p>
           You are responsible for maintaining the confidentiality of your
           account and password and for restricting access to your computer and
@@ -123,7 +100,7 @@ const TermsAndConditions = () => {
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="terms-section">
-        <h2>4. Intellectual Property</h2>
+        <h2>3. Intellectual Property</h2>
         <p>
           The content and design of the Resume Builder website and resume templates
           are owned by Resume Builder. You are not permitted to use any content or
@@ -139,41 +116,9 @@ const TermsAndConditions = () => {
           intellectual property rights to the fullest extent permitted by law.
         </p>
       </motion.div>
+      
       <motion.div variants={itemVariants} className="terms-section">
-        <h2>5. Limitation of Liability</h2>
-        <p>
-          Resume Builder will not be liable for any loss or damage arising from your
-          use of the site. This includes, but is not limited to:
-        </p>
-        <ul className="terms-ul">
-          <li className="terms-li">
-            Indirect or consequential losses, such as loss of profits, revenue,
-            or data.
-          </li>
-          <li className="terms-li">
-            Incidental damages that occur as a result of using or being unable
-            to use the site, including but not limited to interruptions in
-            service or errors in the content.
-          </li>
-          <li className="terms-li">
-            Any damage to your computer systems or data as a result of accessing
-            or using our site, including viruses or malware that may be
-            transmitted through the site.
-          </li>
-          <li className="terms-li">
-            Losses arising from unauthorized access to or alteration of your
-            account or data, including breaches of security.
-          </li>
-        </ul>
-        <p>
-          Our total liability for any claims arising out of your use of the site
-          shall not exceed the amount you paid, if any, for the use of the
-          services in question. We reserve the right to limit our liability to
-          the fullest extent permitted by applicable law.
-        </p>
-      </motion.div>
-      <motion.div variants={itemVariants} className="terms-section">
-        <h2>6. Termination</h2>
+        <h2>4. Termination</h2>
         <p>
           We reserve the right to terminate or suspend your access to the
           Resume Builder website and services at our sole discretion, with or without
@@ -195,7 +140,7 @@ const TermsAndConditions = () => {
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="terms-section">
-        <h2>7. Changes to Terms</h2>
+        <h2>5. Changes to Terms</h2>
         <p>
           Resume Builder reserves the right to modify these terms and conditions at
           any time. It is important for you to be aware of the following:
@@ -220,31 +165,8 @@ const TermsAndConditions = () => {
           </li>
         </ul>
       </motion.div>
-      <motion.div variants={itemVariants} className="terms-section">
-        <h2>8. Governing Law</h2>
-        <p>
-          These terms and conditions are governed by and construed in accordance
-          with the laws of Pakistan. The following points outline how this
-          applies:
-        </p>
-        <ul className="terms-ul">
-          <li className="terms-li">
-            The laws of Pakistan will govern any disputes or claims arising from
-            or related to your use of the Resume Builder website and services. This
-            includes, but is not limited to, issues related to the
-            interpretation of these terms, the legality of your use, and any
-            other legal matters.
-          </li>
-          <li className="terms-li">
-            All terms and conditions, including any policies referenced herein,
-            constitute the entire agreement between you and Resume Builder regarding
-            your use of the site and supersede all prior agreements and
-            understandings, whether written or oral, related to the subject
-            matter.
-          </li>
-        </ul>
-      </motion.div>
-      <motion.p variants={itemVariants} className="terms-footer"></motion.p>
+      
+      
     </motion.div>
   );
 };

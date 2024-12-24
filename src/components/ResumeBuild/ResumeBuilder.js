@@ -23,6 +23,7 @@ import {
   FaCertificate,
   FaGraduationCap,
   FaUserFriends,
+  FaArrowRight,
 } from "react-icons/fa";
 import "./ResumeBuilder.css";
 import Navbar1 from "../Navbar/Navbar1";
@@ -49,6 +50,7 @@ const ResumeBuilder = () => {
   });
 
   const [errors, setErrors] = useState({});
+  // All Steps of Resume
   const steps = [
     {
       name: "Personal Info.",
@@ -156,8 +158,8 @@ const ResumeBuilder = () => {
     },
   ];
 
-  //Next steps and Validate all forms
 
+  //Next steps and Validate all forms
   const nextStep = () => {
     const isValid = validateCurrentStep();
     if (isValid) {
@@ -182,6 +184,7 @@ const ResumeBuilder = () => {
     setStep((prevStep) => prevStep - 1);
   };
 
+  //All Steps Validation Using Switch
   const validateCurrentStep = () => {
     let isValid = true;
     let newErrors = {};
@@ -582,10 +585,8 @@ const ResumeBuilder = () => {
       localStorage.setItem("educationIDs", JSON.stringify(educationIDs));
       console.log("Education IDs:", educationIDs);
       const EducationIDs = JSON.parse(localStorage.getItem("educationIDs"));
-      // // //Education Submission End
 
       // // //Handle Certifcate Submission
-      
       const certificateIDs = [];
       for (let i = 0; i < formData.certificate.length; i++) {
         const certificateResponse = await axios.post(
@@ -596,11 +597,8 @@ const ResumeBuilder = () => {
       }
       localStorage.setItem("certificateIDs", JSON.stringify(certificateIDs));
       console.log("Certificate IDs:", certificateIDs);
-    
-      // // //End of Certificate Submission
 
       // // //Start of Project Submission
-      
       const porjectIDs = [];
       for (let i = 0; i < formData.projects.length; i++) {
         const projectResponse = await axios.post(
@@ -611,11 +609,8 @@ const ResumeBuilder = () => {
       }
       localStorage.setItem("projectIDs", JSON.stringify(porjectIDs));
       console.log("Project IDs:", porjectIDs);
-    
-      // // //End of Project Submission
-
+      
       // // //Handle Experience Submission
-    
       const experienceIDs = [];
       for (let i = 0; i < formData.experience.length; i++) {
         const experienceResponse = await axios.post(
@@ -626,11 +621,8 @@ const ResumeBuilder = () => {
       }
       localStorage.setItem("experienceIDs", JSON.stringify(experienceIDs));
       console.log("Experience IDs:", experienceIDs);
-    
-      // // //End of Experience Submission
 
       // // // Start of Skills Submission
-      
       const skillsResponse = await axios.post(
         "http://localhost:4000/skill/create-skill",
         formData.skill
@@ -638,10 +630,8 @@ const ResumeBuilder = () => {
       const skillsID = skillsResponse.data.id;
       localStorage.setItem("skillsID", skillsID);
       console.log("Skills ID:", skillsID);
-      // // // End of Skills Submission
 
       // // // Start of Hobbies Submission
-
       const hobbiesResponse = await axios.post(
         "http://localhost:4000/hobbies/createHobby",
         formData.hobbies
@@ -649,7 +639,6 @@ const ResumeBuilder = () => {
       const hobbiesID = hobbiesResponse.data.id;
       localStorage.setItem("HobbiesID", hobbiesID);
       console.log("Hobbies ID:", hobbiesID);
-      // // // End of Hobbies Submission
 
       // // // Start of Reference Submission
       const referenceResponse = await axios.post(
@@ -659,7 +648,6 @@ const ResumeBuilder = () => {
       const referenceID = referenceResponse.data.id;
       localStorage.setItem("ReferenceID", referenceID);
       console.log("Reference ID:", referenceID);
-      // // End of Reference Submission
 
       // Start Personal Info Submission
       console.log(formData.personalInfo)
@@ -670,7 +658,6 @@ const ResumeBuilder = () => {
       const personalInfoID = personalInfoResponse.data.id;
       localStorage.setItem("personalInfoID", personalInfoID);
       console.log("Personal Info ID:", personalInfoID);
-      // End Personal Info Submission
 
       // alert("All data submitted successfully!");
     } catch (error) {
@@ -752,7 +739,7 @@ const ResumeBuilder = () => {
             )}
             {step < steps.length ? (
               <button onClick={nextStep} className="nav-button">
-                Next
+                Next 
               </button>
             ) : (
               <button onClick={handleSubmit} className="nav-button">
