@@ -158,7 +158,6 @@ const ResumeBuilder = () => {
     },
   ];
 
-
   //Next steps and Validate all forms
   const nextStep = () => {
     const isValid = validateCurrentStep();
@@ -239,15 +238,15 @@ const ResumeBuilder = () => {
             "+92": /^[3][0-9]{9}$/, // Pakistan: Starts with 3 and 10 digits (e.g., 3001234567)
             "+33": /^\d{9}$/, // France: 9 digits
             "+49": /^\d{10,11}$/, // Germany: 10-11 digits
-            "+86": /^\d{11}$/ // China: 11 digits
+            "+86": /^\d{11}$/, // China: 11 digits
           };
-        
+
           // Get the selected country code
           const countryCode = personalInfo.countryCode;
-        
+
           // Get the regex for the selected country code
           const regex = phoneRegexPatterns[countryCode];
-        
+
           // Validate contact number based on selected country code
           if (regex && !regex.test(personalInfo.contact)) {
             newErrors.contact = `*Invalid contact number for ${countryCode}`;
@@ -257,32 +256,45 @@ const ResumeBuilder = () => {
             isValid = false;
           }
         }
-        if (!personalInfo.address || personalInfo.address.trim() === ""){
+        if (!personalInfo.address || personalInfo.address.trim() === "") {
           newErrors.address = "*Required";
           isValid = false;
-        }else{
-        if (
-        !/^[A-Za-zÀ-ÖØ-öø-ÿ0-9]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ0-9]+)*$/.test(personalInfo.address)) {
-          newErrors.address = "*Only single space";
-          isValid = false;
-        }}
+        } else {
+          if (
+            !/^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/.test(
+              personalInfo.address
+            )
+          ) {
+            newErrors.address = "*Only single space";
+            isValid = false;
+          }
+        }
         if (!personalInfo.linkedin || personalInfo.linkedin.trim() === "") {
           newErrors.linkedin = "*Required";
           isValid = false;
-        }else{
-        if (
-        !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(personalInfo.linkedin)) {
-          newErrors.linkedin = "*Letters/single space";
-          isValid = false;
-        }}
-         if (!personalInfo.objective || personalInfo.objective.trim() === ""){
+        } else {
+          if (
+            !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
+              personalInfo.linkedin
+            )
+          ) {
+            newErrors.linkedin = "*Letters/single space";
+            isValid = false;
+          }
+        }
+        if (!personalInfo.objective || personalInfo.objective.trim() === "") {
           newErrors.objective = "*Required";
           isValid = false;
-         }else {
-        if (!/^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/.test(personalInfo.objective)) {
-          newErrors.objective = "*Only single space";
-          isValid = false;
-        }}
+        } else {
+          if (
+            !/^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/.test(
+              personalInfo.objective
+            )
+          ) {
+            newErrors.objective = "*Only single space";
+            isValid = false;
+          }
+        }
         break;
       case 2:
         // Validate education fields
@@ -304,7 +316,8 @@ const ResumeBuilder = () => {
             isValid = false;
           } else {
             // Validate that the first name contains only alphabetic characters (letters)
-            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/; // Includes accented letters and spaces
+            const nameRegex =
+              /^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/; // Includes accented letters and spaces
             if (!nameRegex.test(edu.Degree)) {
               error.Degree = "*Only letters and single space";
               isValid = false;
@@ -328,48 +341,47 @@ const ResumeBuilder = () => {
         });
         newErrors.education = educationErrors;
         break;
-        case 3:
-          // Certificate Fields
-          const certificateErrors = formData.certificate.map((cer, index) => {
-              let error = {};
-      
-              // Validate certificateName
-              if (cer.certificateName && cer.certificateName.trim() !== "") {
-                  const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and single spaces
-                  if (!nameRegex.test(cer.certificateName)) {
-                      error.certificateName = "*Only letters & single space allowed";
-                      isValid = false;
-                  }
-              }
-      
-              // Validate IssuingOrg
-              if (cer.IssuingOrg && cer.IssuingOrg.trim() !== "") {
-                  const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and single spaces
-                  if (!nameRegex.test(cer.IssuingOrg)) {
-                      error.IssuingOrg = "*Only letters & single space allowed";
-                      isValid = false;
-                  }
-              }
-      
-              // Validate IssueDate (not required, only invalid format check)
-              if (cer.IssueDate && cer.IssueDate.trim() !== "") {
-                  if (!/^\d{2}-\d{2}-\d{4}$/.test(cer.IssueDate)) {
-                      error.IssueDate = "*Invalid format. Use dd-MM-yyyy";
-                      isValid = false;
-                  }
-              }
-      
-              return error;
-          });
-          newErrors.certificate = certificateErrors;
-          break;
-      
+      case 3:
+        // Certificate Fields
+        const certificateErrors = formData.certificate.map((cer, index) => {
+          let error = {};
+
+          // Validate certificateName
+          if (cer.certificateName && cer.certificateName.trim() !== "") {
+            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and single spaces
+            if (!nameRegex.test(cer.certificateName)) {
+              error.certificateName = "*Only letters & single space allowed";
+              isValid = false;
+            }
+          }
+
+          // Validate IssuingOrg
+          if (cer.IssuingOrg && cer.IssuingOrg.trim() !== "") {
+            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and single spaces
+            if (!nameRegex.test(cer.IssuingOrg)) {
+              error.IssuingOrg = "*Only letters & single space allowed";
+              isValid = false;
+            }
+          }
+
+          // Validate IssueDate (not required, only invalid format check)
+          if (cer.IssueDate && cer.IssueDate.trim() !== "") {
+            if (!/^\d{2}-\d{2}-\d{4}$/.test(cer.IssueDate)) {
+              error.IssueDate = "*Invalid format. Use dd-MM-yyyy";
+              isValid = false;
+            }
+          }
+
+          return error;
+        });
+        newErrors.certificate = certificateErrors;
+        break;
+
       case 4:
         // Validate education fields
         const experienceErrors = formData.experience.map((exp, index) => {
           let error = {};
           if (exp.JobTitle && exp.JobTitle.trim() !== "") {
-            
             // Validate that the first name contains only alphabetic characters (letters)
             const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
             if (!nameRegex.test(exp.JobTitle)) {
@@ -378,7 +390,6 @@ const ResumeBuilder = () => {
             }
           }
           if (exp.CompanyName && exp.CompanyName.trim() !== "") {
-            
             // Validate that the first name contains only alphabetic characters (letters)
             const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
             if (!nameRegex.test(exp.CompanyName)) {
@@ -387,20 +398,24 @@ const ResumeBuilder = () => {
             }
           }
           if (exp.StartYear && exp.StartYear.trim() !== "") {
-             if (!/^\d{4}$/.test(exp.StartYear)) {
-            error.StartYear = "*Invalid Format";
-            isValid = false;
-          }}
+            if (!/^\d{4}$/.test(exp.StartYear)) {
+              error.StartYear = "*Invalid Format";
+              isValid = false;
+            }
+          }
           if (exp.EndYear && exp.EndYear.trim() !== "") {
             if (!/^\d{4}$/.test(exp.EndYear)) {
-            error.EndYear = "*Invalid Format";
-            isValid = false;
-          }}
-          if (exp.Responsibilties && exp.Responsibilties.trim() !== "" ) {
-            const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/;
-            if(!nameRegex.test(exp.Responsibilties)){
-            error.Responsibilties = "*Only single space";
-            isValid = false;}
+              error.EndYear = "*Invalid Format";
+              isValid = false;
+            }
+          }
+          if (exp.Responsibilties && exp.Responsibilties.trim() !== "") {
+            const nameRegex =
+              /^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/;
+            if (!nameRegex.test(exp.Responsibilties)) {
+              error.Responsibilties = "*Only single space";
+              isValid = false;
+            }
           }
           return error;
         });
@@ -409,32 +424,44 @@ const ResumeBuilder = () => {
       case 5:
         // Validate skill
         const skill = formData.skill || {};
+        const skillValues = [];
         if (!skill.skill1 || skill.skill1.trim() === "") {
           newErrors.skill1 = "*Required";
           isValid = false;
-        }
-        else if(skill.skill1 && skill.skill1.trim() !== "") {
-          
+        } else if (skill.skill1 && skill.skill1.trim() !== "") {
           const skillRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
           if (!skillRegex.test(skill.skill1)) {
             newErrors.skill1 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill1.trim().toLowerCase())) {
+            newErrors.skill1 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill1.trim().toLowerCase());
           }
-        }
+        } 
         if (skill.skill2 && skill.skill2.trim() !== "") {
-          
           const skillRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
           if (!skillRegex.test(skill.skill2)) {
             newErrors.skill2 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill2.trim().toLowerCase())) {
+            newErrors.skill2 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill2.trim().toLowerCase());
           }
         }
         if (skill.skill3 && skill.skill3.trim() !== "") {
-          
           const skillRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
           if (!skillRegex.test(skill.skill3)) {
             newErrors.skill3 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill3.trim().toLowerCase())) {
+            newErrors.skill3 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill3.trim().toLowerCase());
           }
         }
         if (skill.skill4 && skill.skill4.trim() !== "") {
@@ -442,6 +469,11 @@ const ResumeBuilder = () => {
           if (!skillRegex.test(skill.skill4)) {
             newErrors.skill4 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill4.trim().toLowerCase())) {
+            newErrors.skill4 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill4.trim().toLowerCase());
           }
         }
         if (skill.skill5 && skill.skill5.trim() !== "") {
@@ -449,6 +481,11 @@ const ResumeBuilder = () => {
           if (!skillRegex.test(skill.skill5)) {
             newErrors.skill5 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill5.trim().toLowerCase())) {
+            newErrors.skill5 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill5.trim().toLowerCase());
           }
         }
         if (skill.skill6 && skill.skill6.trim() !== "") {
@@ -456,6 +493,11 @@ const ResumeBuilder = () => {
           if (!skillRegex.test(skill.skill6)) {
             newErrors.skill6 = "*Only letters and single space";
             isValid = false;
+          }else if (skillValues.includes(skill.skill6.trim().toLowerCase())) {
+            newErrors.skill6 = "*Skill must be unique";
+            isValid = false;
+          } else {
+            skillValues.push(skill.skill6.trim().toLowerCase());
           }
         }
         break;
@@ -463,23 +505,34 @@ const ResumeBuilder = () => {
         //Project Fields
         const projectErrors = formData.projects.map((pro, index) => {
           let error = {};
-          if (pro.ProjectName && pro.ProjectName.trim() !== "" ) {
-            if(!/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(pro.ProjectName)){
+          if (pro.ProjectName && pro.ProjectName.trim() !== "") {
+            if (
+              !/^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(
+                pro.ProjectName
+              )
+            ) {
               error.ProjectName = "*Only letters and single Space";
-            isValid = false;
+              isValid = false;
             }
-            
           }
-          if (pro.languageFramework && pro.languageFramework.trim() !== "" ) {
-            if(!/^[A-Za-zÀ-ÖØ-öø-ÿ.,/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,/]+)*$/.test(pro.languageFramework)){
+          if (pro.languageFramework && pro.languageFramework.trim() !== "") {
+            if (
+              !/^[A-Za-zÀ-ÖØ-öø-ÿ.,/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,/]+)*$/.test(
+                pro.languageFramework
+              )
+            ) {
               error.languageFramework = "*Only letters and single Space";
-            isValid = false;
+              isValid = false;
             }
           }
-          if (pro.Description && pro.Description.trim() !== "" ) {
-            if(!/^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/.test(pro.Description)){
+          if (pro.Description && pro.Description.trim() !== "") {
+            if (
+              !/^[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ.,-_/]+)*$/.test(
+                pro.Description
+              )
+            ) {
               error.Description = "*Only letters and single Space";
-            isValid = false;
+              isValid = false;
             }
           }
           return error;
@@ -492,8 +545,7 @@ const ResumeBuilder = () => {
         if (!hobbies.hobby1 || hobbies.hobby1.trim() === "") {
           newErrors.hobby1 = "*Required";
           isValid = false;
-        }
-        else if (hobbies.hobby1 && hobbies.hobby1.trim() !== "") {
+        } else if (hobbies.hobby1 && hobbies.hobby1.trim() !== "") {
           const skillRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
           if (!skillRegex.test(hobbies.hobby1)) {
             newErrors.hobby1 = "*Only letters and single Space";
@@ -535,8 +587,10 @@ const ResumeBuilder = () => {
         if (!references.reference1 || references.reference1.trim() === "") {
           newErrors.reference1 = "*Required";
           isValid = false;
-        }
-        else if (references.reference1 && references.reference1.trim() !== "") {
+        } else if (
+          references.reference1 &&
+          references.reference1.trim() !== ""
+        ) {
           const refRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/; // Includes accented letters and spaces
           if (!refRegex.test(references.reference1)) {
             newErrors.reference1 = "*Only letters and single Space";
@@ -569,104 +623,104 @@ const ResumeBuilder = () => {
   //This line of code will handle the submission and integrate with backend apis using axios
   const handleSubmit = async () => {
     const isValid = validateCurrentStep();
-    if(isValid){
-    setLoading(true);
-    try {
-      // Handle education submissions
-      const educationIDs = [];
-      for (let i = 0; i < formData.education.length; i++) {
-        console.log(formData.education[i]);
-        const educationResponse = await axios.post(
-          "http://localhost:4000/education/create",
-          formData.education[i]
+    if (isValid) {
+      setLoading(true);
+      try {
+        // Handle education submissions
+        const educationIDs = [];
+        for (let i = 0; i < formData.education.length; i++) {
+          console.log(formData.education[i]);
+          const educationResponse = await axios.post(
+            "http://localhost:4000/education/create",
+            formData.education[i]
+          );
+          educationIDs.push(educationResponse.data.id);
+        }
+        localStorage.setItem("educationIDs", JSON.stringify(educationIDs));
+        console.log("Education IDs:", educationIDs);
+        const EducationIDs = JSON.parse(localStorage.getItem("educationIDs"));
+
+        // // //Handle Certifcate Submission
+        const certificateIDs = [];
+        for (let i = 0; i < formData.certificate.length; i++) {
+          const certificateResponse = await axios.post(
+            "http://localhost:4000/certificate/create",
+            formData.certificate[i]
+          );
+          certificateIDs.push(certificateResponse.data.id);
+        }
+        localStorage.setItem("certificateIDs", JSON.stringify(certificateIDs));
+        console.log("Certificate IDs:", certificateIDs);
+
+        // // //Start of Project Submission
+        const porjectIDs = [];
+        for (let i = 0; i < formData.projects.length; i++) {
+          const projectResponse = await axios.post(
+            "http://localhost:4000/project/create-Project",
+            formData.projects[i]
+          );
+          porjectIDs.push(projectResponse.data.id);
+        }
+        localStorage.setItem("projectIDs", JSON.stringify(porjectIDs));
+        console.log("Project IDs:", porjectIDs);
+
+        // // //Handle Experience Submission
+        const experienceIDs = [];
+        for (let i = 0; i < formData.experience.length; i++) {
+          const experienceResponse = await axios.post(
+            "http://localhost:4000/Experience/create-Experience",
+            formData.experience[i]
+          );
+          experienceIDs.push(experienceResponse.data.id);
+        }
+        localStorage.setItem("experienceIDs", JSON.stringify(experienceIDs));
+        console.log("Experience IDs:", experienceIDs);
+
+        // // // Start of Skills Submission
+        const skillsResponse = await axios.post(
+          "http://localhost:4000/skill/create-skill",
+          formData.skill
         );
-        educationIDs.push(educationResponse.data.id);
-      }
-      localStorage.setItem("educationIDs", JSON.stringify(educationIDs));
-      console.log("Education IDs:", educationIDs);
-      const EducationIDs = JSON.parse(localStorage.getItem("educationIDs"));
+        const skillsID = skillsResponse.data.id;
+        localStorage.setItem("skillsID", skillsID);
+        console.log("Skills ID:", skillsID);
 
-      // // //Handle Certifcate Submission
-      const certificateIDs = [];
-      for (let i = 0; i < formData.certificate.length; i++) {
-        const certificateResponse = await axios.post(
-          "http://localhost:4000/certificate/create",
-          formData.certificate[i]
+        // // // Start of Hobbies Submission
+        const hobbiesResponse = await axios.post(
+          "http://localhost:4000/hobbies/createHobby",
+          formData.hobbies
         );
-        certificateIDs.push(certificateResponse.data.id);
-      }
-      localStorage.setItem("certificateIDs", JSON.stringify(certificateIDs));
-      console.log("Certificate IDs:", certificateIDs);
+        const hobbiesID = hobbiesResponse.data.id;
+        localStorage.setItem("HobbiesID", hobbiesID);
+        console.log("Hobbies ID:", hobbiesID);
 
-      // // //Start of Project Submission
-      const porjectIDs = [];
-      for (let i = 0; i < formData.projects.length; i++) {
-        const projectResponse = await axios.post(
-          "http://localhost:4000/project/create-Project",
-          formData.projects[i]
+        // // // Start of Reference Submission
+        const referenceResponse = await axios.post(
+          "http://localhost:4000/Reference/create-reference",
+          formData.reference
         );
-        porjectIDs.push(projectResponse.data.id);
-      }
-      localStorage.setItem("projectIDs", JSON.stringify(porjectIDs));
-      console.log("Project IDs:", porjectIDs);
-      
-      // // //Handle Experience Submission
-      const experienceIDs = [];
-      for (let i = 0; i < formData.experience.length; i++) {
-        const experienceResponse = await axios.post(
-          "http://localhost:4000/Experience/create-Experience",
-          formData.experience[i]
+        const referenceID = referenceResponse.data.id;
+        localStorage.setItem("ReferenceID", referenceID);
+        console.log("Reference ID:", referenceID);
+
+        // Start Personal Info Submission
+        console.log(formData.personalInfo);
+        const personalInfoResponse = await axios.post(
+          "http://localhost:4000/personal-info/create-info",
+          formData.personalInfo
         );
-        experienceIDs.push(experienceResponse.data.id);
+        const personalInfoID = personalInfoResponse.data.id;
+        localStorage.setItem("personalInfoID", personalInfoID);
+        console.log("Personal Info ID:", personalInfoID);
+
+        // alert("All data submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting resume:", error);
+      } finally {
+        setLoading(false); // Hide loading screen
       }
-      localStorage.setItem("experienceIDs", JSON.stringify(experienceIDs));
-      console.log("Experience IDs:", experienceIDs);
-
-      // // // Start of Skills Submission
-      const skillsResponse = await axios.post(
-        "http://localhost:4000/skill/create-skill",
-        formData.skill
-      );
-      const skillsID = skillsResponse.data.id;
-      localStorage.setItem("skillsID", skillsID);
-      console.log("Skills ID:", skillsID);
-
-      // // // Start of Hobbies Submission
-      const hobbiesResponse = await axios.post(
-        "http://localhost:4000/hobbies/createHobby",
-        formData.hobbies
-      );
-      const hobbiesID = hobbiesResponse.data.id;
-      localStorage.setItem("HobbiesID", hobbiesID);
-      console.log("Hobbies ID:", hobbiesID);
-
-      // // // Start of Reference Submission
-      const referenceResponse = await axios.post(
-        "http://localhost:4000/Reference/create-reference",
-        formData.reference
-      );
-      const referenceID = referenceResponse.data.id;
-      localStorage.setItem("ReferenceID", referenceID);
-      console.log("Reference ID:", referenceID);
-
-      // Start Personal Info Submission
-      console.log(formData.personalInfo)
-      const personalInfoResponse = await axios.post(
-        "http://localhost:4000/personal-info/create-info",
-        formData.personalInfo
-      );
-      const personalInfoID = personalInfoResponse.data.id;
-      localStorage.setItem("personalInfoID", personalInfoID);
-      console.log("Personal Info ID:", personalInfoID);
-
-      // alert("All data submitted successfully!");
-    } catch (error) {
-      console.error("Error submitting resume:", error);
-    } finally {
-      setLoading(false); // Hide loading screen
+      navigate("/display");
     }
-    navigate("/display");
-  }
   };
   if (loading) {
     return <Loading />; // Render loading screen if loading state is true
@@ -739,7 +793,7 @@ const ResumeBuilder = () => {
             )}
             {step < steps.length ? (
               <button onClick={nextStep} className="nav-button">
-                Next 
+                Next
               </button>
             ) : (
               <button onClick={handleSubmit} className="nav-button">

@@ -91,7 +91,7 @@ const PersonalInfoForm = ({ formData, setFormData, errors, setErrors }) => {
         return;
       }
       // Check file size (10MB = 10 * 1024 * 1024 bytes)
-      const maxSize = 10 * 1024 * 1024;
+      const maxSize = 2 * 1024 * 1024;
       if (file.size > maxSize) {
         alert("File size must be less than 10MB.");
         return;

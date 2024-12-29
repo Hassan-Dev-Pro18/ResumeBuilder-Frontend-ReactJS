@@ -31,6 +31,9 @@
    
     transform: scale(1.05);
 }
+.navbar-logo a{
+    text-decoration: none;
+}
 
 .nav-menu {
     display: grid;

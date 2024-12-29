@@ -16,7 +16,7 @@ const TestimonialsManagement = () => {
             setMessages(response.data.Testimonials);
             console.log(response.data);
             setLoading(false);
-            toast.success("Testimonials deleted successfully!");
+            
         } catch (error) {
             console.error('Error fetching messages:', error);
             setLoading(false);
@@ -34,6 +34,7 @@ const TestimonialsManagement = () => {
         try {
             await axios.delete(`http://localhost:4000/testimonials/${messageId}`); // Replace with actual API
             await fetchMessages();
+            toast.success("Testimonials deleted successfully!");
         } catch (error) {
             console.error('Error deleting message:', error);
         }
@@ -46,6 +47,7 @@ const TestimonialsManagement = () => {
             
             {/* Content below the navbar */}
             <div className="contact-messages-management">
+            <ToastContainer />
                 <h2 className="contactManagement-h2">Testimonials Management</h2>
                 
                 {/* Show loading spinner or text while messages are being fetched */}
@@ -83,7 +85,7 @@ const TestimonialsManagement = () => {
                     </table>
                     </div>
                 )}
-                <ToastContainer />
+                
             </div>
         </div>
     );

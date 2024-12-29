@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <nav className="NavbarItems">
-      <h1 className="navbar-logo">Resume Builder</h1>
+      <h1 className="navbar-logo" onClick={navigate('/')}>Resume Builder</h1>
       
     </nav>
   );

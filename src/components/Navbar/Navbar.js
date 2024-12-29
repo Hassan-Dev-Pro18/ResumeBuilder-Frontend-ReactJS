@@ -1,7 +1,7 @@
 import "./Navbarstyle.css";
 import { Component } from "react";
 import { MenuItems } from "../MenuItems/MenuItems";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate,useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 class Navbar extends Component {
   state = { clicked: false,
@@ -38,10 +38,11 @@ class Navbar extends Component {
       visible: { opacity: 1, y: 0 },
       exit: { opacity: 0, y: -20 },
     };
+      
     return (
       <nav className="NavbarItems">
         
-        <h1 className="navbar-logo">Resume Builder</h1>
+        <h1 className="navbar-logo"><a href="/" className="navbar-logo">Resume Builder</a></h1>
         <div className="menu-icon" onClick={this.handleClick}>
         <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
         </div>

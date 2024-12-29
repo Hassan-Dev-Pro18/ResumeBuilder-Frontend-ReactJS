@@ -29,8 +29,8 @@ function App() {
         <Route path='/template' element={<Template/>}/>
         {/* <Route path='/template' element={<ProtectedRoute Component = {Template}/>}/> */}
         <Route path='/changeTemplate' element={<ChangeTemplatePage/>}/>
-        {/* {<Route path='/analysis' element = {<Analysis/>}/>} */}
-        <Route path='/analysis' element={<ProtectedRoute Component = {Analysis}/>}/>
+        <Route path='/analysis' element = {<Analysis/>}/>
+        {/* <Route path='/analysis' element={<ProtectedRoute Component = {Analysis}/>}/> */}
         <Route path='/about' element={<About/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/login' element={<Login/>}/>
